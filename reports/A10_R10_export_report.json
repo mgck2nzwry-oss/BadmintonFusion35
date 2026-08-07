@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "trial_id": "A10-R10",
+  "output_dir": "examples/a10_r10",
+  "published_files": 17,
+  "calibration_status": "PASS",
+  "pixel_residual_status": "REVIEW_REQUIRED",
+  "nearest_mapping_status": "PASS"
+}

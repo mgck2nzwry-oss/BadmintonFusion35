@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "trial_id": "A10-R10",
+  "action": "A10",
+  "repeat": 10,
+  "participant_scope": "single consenting author-participant",
+  "visual": {
+    "synchronized_frame_interval_inclusive": [
+      3979,
+      4181
+    ],
+    "frames": 203,
+    "rate_hz": 60.0,
+    "duration_s": 3.3666666666666667,
+    "two_dimensional": {
+      "rows": 21112,
+      "frames_per_camera": 203,
+      "keypoints": 26,
+      "sync_to_source_frame_offsets": {
+        "cam01": 0,
+        "cam02": 5,
+        "cam03": 9,
+        "cam04": 14
+      },
+      "offset_mapping_verified_by_exact_file_content": true,
+      "selected_source_content_sha256": {
+        "cam01": "e8ac63d9a4de1ef0d363db7ee6f6e60675812701d6949ef876682d9c3ca04511",
+        "cam02": "766a7913fcafba697b18a0e0b1530d95175a2a5584d7097a754f11f591e5af68",
+        "cam03": "f5a120eaa0029e5ec46e476902316bfd30d8237dcf9cc04ed3d80c13b2ad9bf0",
+        "cam04": "ec80b9a164806833b46b57b073b395433c907160a14c03a42533700d9fcf7825"
+      }
+    },
+    "three_dimensional": {
+      "rows": 4466,
+      "frames": 203,
+      "markers": 22,
+      "units": "m",
+      "filter": "Pose2Sim fourth-order zero-phase Butterworth, 6 Hz",
+      "source_sha256": "71543c8da725718b3396cdab4d3788e6492fa3061da54e47b4f963557237446d"
+    }
+  },
+  "visual_imu_alignment": {
+    "formula": "imu_time_s = offset_s + scale * visual_time_s",
+    "offset_s": 378.93975,
+    "scale": 0.9975,
+    "clock_drift_percent": -0.24999999999999467,
+    "maximum_correlation": 0.6653,
+    "correlation_margin": 0.1827,
+    "status": "OK",
+    "nearest_sample_audit": {
+      "status": "PASS",
+      "visual_samples": 203,
+      "unique_imu_samples": 169,
+      "max_abs_timing_error_ms": 10.000000000000009,
+      "mean_abs_timing_error_ms": 5.008210180623965,
+      "p95_abs_timing_error_ms": 10.000000000000009,
+      "max_imu_reuse_count": 2,
+      "mapping_method": "nearest_sample_no_interpolation"
+    }
+  },
+  "imu": {
+    "rows": 676,
+    "samples_per_device": 169,
+    "rate_hz": 50.0,
+    "filter": "fourth-order zero-phase Butterworth, 10 Hz; gaps >0.12 s not interpolated",
+    "source_sha256": {
+      "WTLhand": "5c6a566346384c63996ee8de1cc4d2d9b383dc40a4a950672a7b1d3e142afb20",
+      "WTLknee": "1ef18385cd7be6ed894f990efbf98741609ef47c49b95ed7ecfef8beb2bd5e8f",
+      "WTRhand": "0bd148f558391f41b14e2d1e2d226508e961414b43037fd56eb0bd71b87d7762",
+      "WTRknee": "85c3fcfec71acbede7e7287bbdf3a4151915bc5f893d4608a8e20ce2ab7482bc"
+    }
+  },
+  "calibration": {
+    "control_point_audit": {
+      "status": "PASS",
+      "point_count": 35,
+      "ground_count": 25,
+      "elevated_count": 10,
+      "coordinate_rank": 3,
+      "sha256_canonical": "E7CE5B462527EC4A14D996963B3DE0B2E621C4CA53C261E3DEA517DB6D65F6FC",
+      "issues": []
+    },
+    "pixel_residual_audit": {
+      "status": "REVIEW_REQUIRED",
+      "camera_count": 4,
+      "robust_pixel_review_threshold": 2.0,
+      "issues": [
+        "At least one camera exceeds the configured robust pixel-RMSE review threshold (2 px)"
+      ],
+      "interpretation": "Pixel residuals do not establish centimetre-level 3D accuracy. A known-distance or held-out 3D validation is still required."
+    },
+    "source_sha256": {
+      "Calib_scene.toml": "d4d1b48666a323b159f924be1a19d2d9f1691e1896adc68f09689e9f22c04df1",
+      "Image_points.json": "a8d967b8b654f9ad7d38090292f73d8dc0d47419eebf38b2f811dba2c937b1c7",
+      "Object_points.trc": "59f59761aa894273be0bb306bc5c9f6235a3efb73917c32ec3edb2290a6f4b30",
+      "scene_points_click_order.csv": "d1d13ddc98572f3075a30d20410aa261fd64055fa18f65d3f9ceb7c04134929a",
+      "extrinsics_point_residuals.csv": "549517652b88eac13b7d65cedbc565fd24ba6890555bf499c70a0d3f3770ba68"
+    },
+    "accuracy_boundary": "Pixel residuals do not establish centimetre-level 3D accuracy; independent held-out spatial validation is still required."
+  },
+  "privacy": "No names, raw host paths, raw IMU dumps or additional participant trials are included."
+}

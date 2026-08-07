@@ -1,8 +1,9 @@
 {
   "release": "v0.1.1",
-  "trial_id": "author_demo_trial_01",
+  "trial_id": "A10-R10",
   "participant": "consenting_author_participant",
-  "action_label": "demo_action_unspecified",
+  "action_label": "A10",
+  "repeat": 10,
   "camera_count": 4,
   "same_trial_status": "confirmed_by_study_owner",
   "synchronization_scope": "independently_trimmed_visual_demonstration_not_frame_level_benchmark",

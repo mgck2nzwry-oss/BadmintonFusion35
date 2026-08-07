@@ -1,0 +1,9 @@
+{
+  "status": "REVIEW_REQUIRED",
+  "camera_count": 4,
+  "robust_pixel_review_threshold": 2.0,
+  "issues": [
+    "At least one camera exceeds the configured robust pixel-RMSE review threshold (2 px)"
+  ],
+  "interpretation": "Pixel residuals do not establish centimetre-level 3D accuracy. A known-distance or held-out 3D validation is still required."
+}

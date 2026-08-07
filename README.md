@@ -5,8 +5,9 @@ training study using four fixed cameras, 35 non-coplanar scene control points an
 limb-mounted IMUs. It converts the original participant-specific scripts into explicit,
 testable functions and a single command-line interface.
 
-This is a **public research-code release**. Version 0.1.1 includes a limited four-view
-demonstration from one consenting author-participant. It does not claim that the full
+This is a **public research-code release**. Version 0.2.0 includes a limited four-view
+demonstration and a compact end-to-end `A10-R10` evidence package from one consenting
+author-participant. It does not claim that the full
 multi-participant paper dataset or every paper result is publicly reproducible.
 
 ## What is already implemented
@@ -21,7 +22,9 @@ multi-participant paper dataset or every paper result is publicly reproducible.
 - Benjamini-Hochberg FDR correction and standardized PCA;
 - paper-workbook audit for PCA, FDR sensitivity, out-of-fold ROC and clustered bootstrap CIs;
 - a safe Pose2Sim stage adapter that defaults to a dry run;
-- an anonymous synthetic end-to-end example.
+- an anonymous synthetic end-to-end example;
+- a de-identified real-trial chain linking synchronized four-camera 2D keypoints,
+  35-point calibration, filtered 3D coordinates, IMU alignment and trial metrics.
 
 ## Installation
 
@@ -59,6 +62,14 @@ Generate the non-identifiable demonstration:
 court35 demo --output-dir "examples\demo\generated"
 ```
 
+Regenerate the compact real-trial evidence package from the private formal project:
+
+```powershell
+court35 export-a10-r10 `
+  --project-root "<FORMAL_POSE2SIM_PROJECT>" `
+  --output-dir "examples\a10_r10"
+```
+
 Audit the formal paper statistics (requires `pip install -e ".[paper]"`):
 
 ```powershell
@@ -89,15 +100,15 @@ deletes the original participant directory.
 
 ## Data policy
 
-Do not commit participant videos, raw IMU dumps, C3D files, archives or identifiable
+Do not commit additional participant videos, raw IMU dumps, C3D files, archives or identifiable
 renderings to Git history. Git contains only code, configuration, small de-identified
-tables and synthetic examples. A deliberately limited author-participant demonstration
+tables, a limited derived real-trial package and synthetic examples. A deliberately limited author-participant demonstration
 is distributed separately as versioned GitHub Release assets. The MIT License applies to
-software and documentation only; see `MEDIA_NOTICE.md` for the demonstration media.
+software and documentation only; see `MEDIA_NOTICE.md` and `DATA_NOTICE.md`.
 
 ## Four-camera demonstration
 
-Version 0.1.1 provides four processed views of one action trial performed by a
+Version 0.1.1 provides four processed views of A10 repeat 10 (`A10-R10`) performed by a
 consenting author-participant. The study owner confirmed permission to display both the
 participant and the venue. Audio streams and source creation-time metadata were removed
 without re-encoding the H.264 video.
@@ -107,6 +118,12 @@ multi-view coverage and pose-overlay output, but they are **not** a frame-level
 synchronization-accuracy benchmark. See
 [`examples/four_camera_demo`](examples/four_camera_demo/README.md) for technical metadata,
 checksums and the fixed release links.
+
+The repository also contains the small
+[`A10-R10 reproducibility package`](examples/a10_r10/README.md): 203 synchronized
+visual frames from all four cameras, their 2D keypoints, filtered 3D coordinates,
+the associated 35-point calibration evidence, 169 aligned samples from each of four
+IMUs, trial metrics, provenance hashes and machine-readable audit results.
 
 ## Citation and availability
 
@@ -120,13 +137,14 @@ Suggested manuscript statement:
 
 > The source code, calibration workflow, data-quality auditing utilities, and
 > reproducible analysis pipeline are publicly available on GitHub at
-> https://github.com/mgck2nzwry-oss/Court35 (version 0.1.1). A limited
-> four-camera demonstration from one consenting author-participant is provided as
-> release media; the complete multi-participant dataset is not publicly distributed.
+> https://github.com/mgck2nzwry-oss/Court35 (version 0.2.0). A limited
+> four-camera demonstration and a compact, de-identified A10-R10 evidence chain from one
+> consenting author-participant are provided; the complete multi-participant dataset is
+> not publicly distributed.
 
 ## Reproducibility status
 
-| Component | v0.1 status |
+| Component | v0.2 status |
 |---|---|
 | Formal 35-point geometry | Implemented and checked against P01 formal files |
 | Pose2Sim orchestration | Implemented; real execution requires explicit opt-in |
@@ -136,6 +154,7 @@ Suggested manuscript statement:
 | PCA and FDR | Implemented |
 | LOPO outputs | All OOF probabilities, ROC curves and clustered-bootstrap CIs are auditable |
 | Exact LOPO model training | Blocked until the authoritative classifier specification is identified |
+| Real end-to-end example | A10-R10: 4-view 2D, 35-point calibration, 3D, aligned 4-IMU data and audits |
 | Human-participant media | Limited author-participant four-view demonstration; full dataset not public |
 | Public software license/citation | MIT; software citation metadata included |
 

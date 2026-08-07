@@ -23,6 +23,7 @@ from .imu.filtering import filter_contiguous_segments
 from .imu.timebase import reconstruct_timestamp, timebase_audit
 from .pipeline.pose2sim import SUPPORTED_STAGES, run_pose2sim
 from .qc.inclusion import apply_inclusion_rules
+from .real_demo import export_a10_r10
 
 
 def _json_default(value: object) -> object:
@@ -182,6 +183,12 @@ def _demo(args: Namespace) -> int:
     return 0
 
 
+def _export_real_demo(args: Namespace) -> int:
+    report = export_a10_r10(args.project_root, args.output_dir)
+    _emit(report, args.report)
+    return 0 if report["status"] == "PASS" else 2
+
+
 def build_parser() -> ArgumentParser:
     parser = ArgumentParser(prog="court35", description="BadmintonCourt35 reproducibility CLI")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -262,6 +269,14 @@ def build_parser() -> ArgumentParser:
     command = sub.add_parser("demo", help="create an anonymous synthetic end-to-end example")
     command.add_argument("--output-dir", required=True)
     command.set_defaults(handler=_demo)
+
+    command = sub.add_parser(
+        "export-a10-r10", help="export the locked, de-identified A10 repeat-10 evidence package"
+    )
+    command.add_argument("--project-root", required=True)
+    command.add_argument("--output-dir", required=True)
+    command.add_argument("--report")
+    command.set_defaults(handler=_export_real_demo)
     return parser
 
 

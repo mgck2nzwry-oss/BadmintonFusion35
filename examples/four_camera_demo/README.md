@@ -1,6 +1,6 @@
 # Four-camera demonstration trial
 
-This package documents four views of one badminton action trial performed by one
+This package documents four views of action A10, repeat 10 (`A10-R10`), performed by one
 consenting author-participant. The videos are attached to the GitHub `v0.1.1` release
 rather than committed to Git history:
 
@@ -20,8 +20,13 @@ rather than committed to Git history:
 
 The files were independently trimmed. Their unequal durations and frame counts mean
 that this release demonstrates four-view coverage and processed output, not measured
-frame-level synchronization accuracy. The action label was not encoded in the supplied
-filenames and is therefore recorded as `demo_action_unspecified` rather than inferred.
+frame-level synchronization accuracy. The study owner subsequently identified the
+supplied clips as `A10-R10`; this is owner-provided provenance, not an inference from
+the video content.
+
+The corresponding compact synchronized 2D, filtered 3D and aligned IMU evidence is in
+[`examples/a10_r10`](../a10_r10/README.md). The released clips remain independently
+trimmed and are not used to claim frame-level video synchronization accuracy.
 
 See `metadata.json` for stream properties and `checksums.sha256` for integrity checks.
 The media terms are stated in the repository-level `MEDIA_NOTICE.md`.
