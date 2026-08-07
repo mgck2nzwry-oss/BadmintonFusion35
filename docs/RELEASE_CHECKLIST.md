@@ -14,4 +14,5 @@
 - [ ] Reproduce every paper table and figure from a clean environment.
 - [x] Add an approved software-level `CITATION.cff`; add the final paper citation after acceptance.
 - [x] Run a local secret/path scan and verify that no oversized research data is in the repository.
-- [ ] Tag the tested paper version and archive it with a DOI-capable repository.
+- [x] Tag public software releases on GitHub (`v0.1.0`; four-view demo in `v0.1.1`).
+- [ ] Archive the final tested paper version with a DOI-capable repository.

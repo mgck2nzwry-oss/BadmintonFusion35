@@ -5,9 +5,9 @@ training study using four fixed cameras, 35 non-coplanar scene control points an
 limb-mounted IMUs. It converts the original participant-specific scripts into explicit,
 testable functions and a single command-line interface.
 
-This repository is currently a **private v0.1 development snapshot**. It does not claim
-that the full paper is reproducible yet, and it must not be made public until the release
-checklist and human-data review are complete.
+This is a **public research-code release**. Version 0.1.1 includes a limited four-view
+demonstration from one consenting author-participant. It does not claim that the full
+multi-participant paper dataset or every paper result is publicly reproducible.
 
 ## What is already implemented
 
@@ -90,9 +90,23 @@ deletes the original participant directory.
 ## Data policy
 
 Do not commit participant videos, raw IMU dumps, C3D files, archives or identifiable
-renderings. Git contains only code, configuration, small de-identified tables and
-synthetic examples. The MIT License applies to the software and documentation only; it
-does not grant permission to use or redistribute participant data or other research data.
+renderings to Git history. Git contains only code, configuration, small de-identified
+tables and synthetic examples. A deliberately limited author-participant demonstration
+is distributed separately as versioned GitHub Release assets. The MIT License applies to
+software and documentation only; see `MEDIA_NOTICE.md` for the demonstration media.
+
+## Four-camera demonstration
+
+Version 0.1.1 provides four processed views of one action trial performed by a
+consenting author-participant. The study owner confirmed permission to display both the
+participant and the venue. Audio streams and source creation-time metadata were removed
+without re-encoding the H.264 video.
+
+The clips were independently trimmed and have unequal frame counts. They demonstrate
+multi-view coverage and pose-overlay output, but they are **not** a frame-level
+synchronization-accuracy benchmark. See
+[`examples/four_camera_demo`](examples/four_camera_demo/README.md) for technical metadata,
+checksums and the fixed release links.
 
 ## Citation and availability
 
@@ -106,7 +120,9 @@ Suggested manuscript statement:
 
 > The source code, calibration workflow, data-quality auditing utilities, and
 > reproducible analysis pipeline are publicly available on GitHub at
-> https://github.com/mgck2nzwry-oss/BadmintonCourt35 (version 0.1.0).
+> https://github.com/mgck2nzwry-oss/BadmintonCourt35 (version 0.1.1). A limited
+> four-camera demonstration from one consenting author-participant is provided as
+> release media; the complete multi-participant dataset is not publicly distributed.
 
 ## Reproducibility status
 
@@ -120,7 +136,7 @@ Suggested manuscript statement:
 | PCA and FDR | Implemented |
 | LOPO outputs | All OOF probabilities, ROC curves and clustered-bootstrap CIs are auditable |
 | Exact LOPO model training | Blocked until the authoritative classifier specification is identified |
-| Raw human data release | Blocked pending consent, ethics and access-policy confirmation |
+| Human-participant media | Limited author-participant four-view demonstration; full dataset not public |
 | Public software license/citation | MIT; software citation metadata included |
 
 See [method provenance](docs/METHOD_PROVENANCE.md) and the

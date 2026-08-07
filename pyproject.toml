@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "badminton-court35"
-version = "0.1.0"
+version = "0.1.1"
 description = "Reproducible 35-point, four-camera visual-IMU workflow for badminton training research"
 readme = "README.md"
 requires-python = ">=3.11"

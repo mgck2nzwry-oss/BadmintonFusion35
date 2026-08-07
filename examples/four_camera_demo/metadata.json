@@ -1,0 +1,62 @@
+{
+  "release": "v0.1.1",
+  "trial_id": "author_demo_trial_01",
+  "participant": "consenting_author_participant",
+  "action_label": "demo_action_unspecified",
+  "camera_count": 4,
+  "same_trial_status": "confirmed_by_study_owner",
+  "synchronization_scope": "independently_trimmed_visual_demonstration_not_frame_level_benchmark",
+  "processing": {
+    "audio_removed": true,
+    "source_creation_time_removed": true,
+    "video_reencoded": false,
+    "pose_overlay_present": true,
+    "privacy_overlay_present": true
+  },
+  "files": [
+    {
+      "name": "cam01.mp4",
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "frame_rate_hz": 60,
+      "frames": 894,
+      "duration_s": 14.9,
+      "audio_streams": 0,
+      "sha256": "c980cc504109d6548e2ce9a8dc0503880caff2c74c704db3590c2462fcccc7bd"
+    },
+    {
+      "name": "cam02.mp4",
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "frame_rate_hz": 60,
+      "frames": 878,
+      "duration_s": 14.633333,
+      "audio_streams": 0,
+      "sha256": "e04b6a7aa59c1d0bd998f8c0c1832f5d3b6b3a9cc162041d83a44320bbe23da5"
+    },
+    {
+      "name": "cam03.mp4",
+      "codec": "h264",
+      "width": 1280,
+      "height": 720,
+      "frame_rate_hz": 60,
+      "frames": 868,
+      "duration_s": 14.466667,
+      "audio_streams": 0,
+      "sha256": "6a98acdbe50ad715c48106f48dec3fd08a25520cd4e92fb40a8515a49bb7b367"
+    },
+    {
+      "name": "cam04.mp4",
+      "codec": "h264",
+      "width": 1280,
+      "height": 720,
+      "frame_rate_hz": 60,
+      "frames": 872,
+      "duration_s": 14.533333,
+      "audio_streams": 0,
+      "sha256": "855a49d34129fdfdfd31f95472500c714f0b241ee72110b2d8e047fb6cb6e6db"
+    }
+  ]
+}
