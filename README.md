@@ -90,8 +90,23 @@ deletes the original participant directory.
 ## Data policy
 
 Do not commit participant videos, raw IMU dumps, C3D files, archives or identifiable
-renderings. Git should contain only code, configuration, small de-identified tables and
-synthetic examples. Public data and code licenses must be approved separately.
+renderings. Git contains only code, configuration, small de-identified tables and
+synthetic examples. The MIT License applies to the software and documentation only; it
+does not grant permission to use or redistribute participant data or other research data.
+
+## Citation and availability
+
+The source code, calibration workflow, quality-auditing utilities and reproducible
+analysis pipeline are publicly available at
+<https://github.com/mgck2nzwry-oss/BadmintonCourt35>. Cite the software using the
+repository's `CITATION.cff`. When the associated article is published, cite both the
+article and the archived software release.
+
+Suggested manuscript statement:
+
+> The source code, calibration workflow, data-quality auditing utilities, and
+> reproducible analysis pipeline are publicly available on GitHub at
+> https://github.com/mgck2nzwry-oss/BadmintonCourt35 (version 0.1.0).
 
 ## Reproducibility status
 
@@ -106,7 +121,7 @@ synthetic examples. Public data and code licenses must be approved separately.
 | LOPO outputs | All OOF probabilities, ROC curves and clustered-bootstrap CIs are auditable |
 | Exact LOPO model training | Blocked until the authoritative classifier specification is identified |
 | Raw human data release | Blocked pending consent, ethics and access-policy confirmation |
-| Public software license/citation | Pending author and institution details |
+| Public software license/citation | MIT; software citation metadata included |
 
 See [method provenance](docs/METHOD_PROVENANCE.md) and the
 [paper reproducibility boundary](docs/PAPER_REPRODUCIBILITY.md), the

@@ -1,7 +1,7 @@
 # Public release checklist
 
 - [ ] Confirm final paper title, author order, ORCIDs and repository owner.
-- [ ] Obtain co-author/institution approval for the software license.
+- [x] Obtain co-author/institution approval for the software license (MIT; 2026-08-07).
 - [ ] Choose a separate data license and controlled-access policy.
 - [ ] Confirm participant consent permits each proposed data tier.
 - [ ] Remove names, absolute local paths, device serials, face/voice data and location metadata.
@@ -12,6 +12,6 @@
 - [ ] Add held-out spatial calibration validation; do not infer it from pixel RMSE.
 - [ ] Identify and implement the authoritative LOPO classifier and all hyperparameters.
 - [ ] Reproduce every paper table and figure from a clean environment.
-- [ ] Replace `CITATION.cff.template` with an approved `CITATION.cff`.
+- [x] Add an approved software-level `CITATION.cff`; add the final paper citation after acceptance.
 - [x] Run a local secret/path scan and verify that no oversized research data is in the repository.
 - [ ] Tag the tested paper version and archive it with a DOI-capable repository.
