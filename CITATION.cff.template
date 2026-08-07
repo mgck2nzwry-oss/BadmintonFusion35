@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated paper and this repository."
+title: "BadmintonCourt35"
+type: software
+version: 0.1.0
+date-released: YYYY-MM-DD
+authors:
+  - family-names: "REPLACE"
+    given-names: "REPLACE"
+repository-code: "https://github.com/REPLACE/BadmintonCourt35"
+preferred-citation:
+  type: article
+  title: "REPLACE WITH FINAL PAPER TITLE"
+  authors:
+    - family-names: "REPLACE"
+      given-names: "REPLACE"
+  year: 2026

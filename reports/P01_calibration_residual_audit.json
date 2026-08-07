@@ -1,0 +1,60 @@
+{
+  "status": "REVIEW_REQUIRED",
+  "camera_count": 4,
+  "robust_pixel_review_threshold": 2.0,
+  "issues": [
+    "At least one camera exceeds the configured robust pixel-RMSE review threshold (2 px)"
+  ],
+  "interpretation": "Pixel residuals do not establish centimetre-level 3D accuracy. A known-distance or held-out 3D validation is still required.",
+  "summary_csv": "reports/P01_calibration_residual_summary.csv",
+  "cameras": [
+    {
+      "Camera": "cam01",
+      "VisiblePoints": 29,
+      "AllPointRMSE_px": 8.946770063264804,
+      "AllPointMean_px": 7.2598902823858955,
+      "AllPointP95_px": 16.828484970233514,
+      "AllPointMax_px": 21.06099897224641,
+      "ReportedCameraRMSE_px": 8.946770063264804,
+      "RobustInliers": 19,
+      "RobustInlierRatio": 0.6551724137931034,
+      "RobustInlierRMSE_px": 3.4554393974991564
+    },
+    {
+      "Camera": "cam02",
+      "VisiblePoints": 27,
+      "AllPointRMSE_px": 16.999750135250096,
+      "AllPointMean_px": 15.241229502233933,
+      "AllPointP95_px": 25.86855876481929,
+      "AllPointMax_px": 32.43183157197135,
+      "ReportedCameraRMSE_px": 16.999750135250096,
+      "RobustInliers": 12,
+      "RobustInlierRatio": 0.4444444444444444,
+      "RobustInlierRMSE_px": 3.9652677735189528
+    },
+    {
+      "Camera": "cam03",
+      "VisiblePoints": 30,
+      "AllPointRMSE_px": 14.282520863047138,
+      "AllPointMean_px": 12.566761572322488,
+      "AllPointP95_px": 23.65858716378975,
+      "AllPointMax_px": 30.861067312115733,
+      "ReportedCameraRMSE_px": 14.282520863047138,
+      "RobustInliers": 15,
+      "RobustInlierRatio": 0.5,
+      "RobustInlierRMSE_px": 4.2879295266472655
+    },
+    {
+      "Camera": "cam04",
+      "VisiblePoints": 30,
+      "AllPointRMSE_px": 12.116315157890577,
+      "AllPointMean_px": 9.85326838747981,
+      "AllPointP95_px": 22.949460443589704,
+      "AllPointMax_px": 26.598278179135423,
+      "ReportedCameraRMSE_px": 12.116315157890575,
+      "RobustInliers": 18,
+      "RobustInlierRatio": 0.6,
+      "RobustInlierRMSE_px": 4.1704701730137606
+    }
+  ]
+}

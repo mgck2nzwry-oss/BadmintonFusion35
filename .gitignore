@@ -1,0 +1,29 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.coverage
+build/
+dist/
+
+# Raw and derived participant data must never enter Git history.
+data/raw/
+data/controlled/
+outputs/
+reports/runtime/
+*.mp4
+*.mov
+*.avi
+*.c3d
+*.h5
+*.hdf5
+*.zip
+
+# Local machine configuration and secrets.
+.env
+.env.*
+config.local.toml
+*.pem
+*.key
+.tmp_sheet_audit/

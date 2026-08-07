@@ -1,0 +1,5 @@
+Participant,Trial,Device,OpticalComparisonEligible,ValidPercent,JointAnalysisStatus,IncludeMainAnalysis,IncludeSensitivityAnalysis,JointExclusionReason
+DEMO,A01,WTRhand,True,99.0,Main_Analysis,True,True,Meets optical and IMU quality criteria
+DEMO,A01,WTLhand,True,93.0,Sensitivity_Only,False,True,IMU valid data 93.00% (90–95%)
+DEMO,A01,WTRknee,False,99.5,Excluded_Optical,False,False,Optical quality criterion not met
+DEMO,A01,WTLknee,True,88.0,Excluded_IMU,False,False,IMU valid data 88.00% (<90%)

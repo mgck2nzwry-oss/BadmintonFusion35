@@ -1,0 +1,28 @@
+[study]
+participant_ids = ["P01", "P02", "P03", "P04", "P05", "P06", "P07", "P08", "P09", "P10"]
+action_ids = ["A01", "A02", "A03", "A04", "A05", "A06", "A07", "A08", "A09", "A10"]
+imu_devices = ["WTRhand", "WTLhand", "WTRknee", "WTLknee"]
+
+[sampling]
+visual_rate_hz = 60.0
+imu_target_rate_hz = 50.0
+nearest_mapping_max_error_ms = 10.000001
+
+[imu_filter]
+type = "zero-phase Butterworth"
+cutoff_hz = 10.0
+order = 4
+max_short_interpolation_gap_s = 0.12
+bridge_long_gaps = false
+
+[quality_control]
+main_analysis_min_valid_percent = 95.0
+sensitivity_min_valid_percent = 90.0
+missing_values_are_zero = false
+participant_is_independent_unit = true
+
+[pose2sim]
+required_camera_count_nominal = 4
+allow_audited_reduced_camera_branch = true
+calibration_point_count = 35
+configuration_file = "Config.toml"

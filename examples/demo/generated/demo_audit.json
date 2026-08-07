@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "synthetic_only": true,
+  "control_points": {
+    "status": "PASS",
+    "point_count": 35,
+    "ground_count": 25,
+    "elevated_count": 10,
+    "coordinate_rank": 3,
+    "sha256_canonical": "E7CE5B462527EC4A14D996963B3DE0B2E621C4CA53C261E3DEA517DB6D65F6FC",
+    "issues": []
+  },
+  "filter": {
+    "status": "PASS",
+    "sampling_rate_hz": 50.0,
+    "cutoff_hz": 10.0,
+    "order": 4,
+    "finite_samples": 147,
+    "missing_samples_preserved": 3,
+    "filtered_runs": 2,
+    "short_runs_left_unfiltered": 0
+  },
+  "mapping": {
+    "status": "PASS",
+    "visual_samples": 180,
+    "unique_imu_samples": 150,
+    "max_abs_timing_error_ms": 10.000000000000009,
+    "mean_abs_timing_error_ms": 4.999999999999988,
+    "p95_abs_timing_error_ms": 10.000000000000009,
+    "max_imu_reuse_count": 2,
+    "mapping_method": "nearest_sample_no_interpolation"
+  },
+  "files": [
+    "control_points_35.csv",
+    "demo_audit.json",
+    "imu_50hz.csv",
+    "mapping_60_to_50.csv",
+    "qc_inclusion.csv",
+    "visual_60hz.csv",
+    "visual_imu_joint.csv"
+  ]
+}

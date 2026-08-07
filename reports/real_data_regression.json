@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "non_destructive": true,
+  "results": {
+    "control_points": {
+      "status": "PASS",
+      "point_count": 35,
+      "ground_count": 25,
+      "elevated_count": 10,
+      "coordinate_rank": 3,
+      "sha256_canonical": "E7CE5B462527EC4A14D996963B3DE0B2E621C4CA53C261E3DEA517DB6D65F6FC",
+      "issues": []
+    },
+    "timebase": {
+      "status": "PASS",
+      "rows": 23020,
+      "strictly_increasing": true,
+      "max_abs_difference_from_authoritative_s": 1.8189894035458565e-12
+    },
+    "nearest_mapping": {
+      "status": "PASS",
+      "visual_samples": 3668,
+      "unique_imu_samples": 3057,
+      "max_abs_timing_error_ms": 10.000000000001563,
+      "mean_abs_timing_error_ms": 4.998182479098605,
+      "p95_abs_timing_error_ms": 9.99999999999801,
+      "max_imu_reuse_count": 2,
+      "mapping_method": "nearest_sample_no_interpolation",
+      "authoritative_index_match_fraction": 1.0,
+      "authoritative_row_count_match": true,
+      "source_precision": "original_trc_and_original_50hz_imu"
+    },
+    "quality_control": {
+      "status": "PASS",
+      "rows": 400,
+      "authoritative_status_match_fraction": 1.0
+    },
+    "filtering": {
+      "status": "PASS",
+      "sampling_rate_hz": 50.0,
+      "cutoff_hz": 10.0,
+      "order": 4,
+      "finite_samples": 19822,
+      "missing_samples_preserved": 40,
+      "filtered_runs": 5,
+      "short_runs_left_unfiltered": 0,
+      "regression_column": "加速度X(g)",
+      "missing_mask_unchanged": true
+    }
+  }
+}
