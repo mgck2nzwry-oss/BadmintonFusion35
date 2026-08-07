@@ -4,10 +4,10 @@ This package documents four views of one badminton action trial performed by one
 consenting author-participant. The videos are attached to the GitHub `v0.1.1` release
 rather than committed to Git history:
 
-- [cam01.mp4](https://github.com/mgck2nzwry-oss/BadmintonCourt35/releases/download/v0.1.1/cam01.mp4)
-- [cam02.mp4](https://github.com/mgck2nzwry-oss/BadmintonCourt35/releases/download/v0.1.1/cam02.mp4)
-- [cam03.mp4](https://github.com/mgck2nzwry-oss/BadmintonCourt35/releases/download/v0.1.1/cam03.mp4)
-- [cam04.mp4](https://github.com/mgck2nzwry-oss/BadmintonCourt35/releases/download/v0.1.1/cam04.mp4)
+- [cam01.mp4](https://github.com/mgck2nzwry-oss/Court35/releases/download/v0.1.1/cam01.mp4)
+- [cam02.mp4](https://github.com/mgck2nzwry-oss/Court35/releases/download/v0.1.1/cam02.mp4)
+- [cam03.mp4](https://github.com/mgck2nzwry-oss/Court35/releases/download/v0.1.1/cam03.mp4)
+- [cam04.mp4](https://github.com/mgck2nzwry-oss/Court35/releases/download/v0.1.1/cam04.mp4)
 
 ## Scope
 

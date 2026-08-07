@@ -112,7 +112,7 @@ checksums and the fixed release links.
 
 The source code, calibration workflow, quality-auditing utilities and reproducible
 analysis pipeline are publicly available at
-<https://github.com/mgck2nzwry-oss/BadmintonCourt35>. Cite the software using the
+<https://github.com/mgck2nzwry-oss/Court35>. Cite the software using the
 repository's `CITATION.cff`. When the associated article is published, cite both the
 article and the archived software release.
 
@@ -120,7 +120,7 @@ Suggested manuscript statement:
 
 > The source code, calibration workflow, data-quality auditing utilities, and
 > reproducible analysis pipeline are publicly available on GitHub at
-> https://github.com/mgck2nzwry-oss/BadmintonCourt35 (version 0.1.1). A limited
+> https://github.com/mgck2nzwry-oss/Court35 (version 0.1.1). A limited
 > four-camera demonstration from one consenting author-participant is provided as
 > release media; the complete multi-participant dataset is not publicly distributed.
 
