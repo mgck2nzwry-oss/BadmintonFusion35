@@ -1,5 +1,8 @@
-# BadmintonCourt35
+# BadmintonFusion35
 
+### A Four-Camera Visual–IMU Dataset for Badminton Motion Analysis
+
+![BadmintonFusion35 Overview](assets/cover.png)
 BadmintonCourt35 is a reproducibility package for a court-standardized badminton
 training study using four fixed cameras, 35 non-coplanar scene control points and four
 limb-mounted IMUs. It converts the original participant-specific scripts into explicit,
