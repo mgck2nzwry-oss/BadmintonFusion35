@@ -2,7 +2,6 @@
 
 ### A Four-Camera Visual–IMU Dataset for Badminton Motion Analysis
 
-![BadmintonFusion35 Overview](assets/cover.png)
 BadmintonCourt35 is a reproducibility package for a court-standardized badminton
 training study using four fixed cameras, 35 non-coplanar scene control points and four
 limb-mounted IMUs. It converts the original participant-specific scripts into explicit,
@@ -13,6 +12,13 @@ demonstration and a compact end-to-end `A10-R10` evidence package from one conse
 author-participant. It does not claim that the full
 multi-participant paper dataset or every paper result is publicly reproducible.
 
+## Data Collection Framework
+
+The data collection framework integrates multi-view video acquisition, court calibration, wearable IMU sensing, and synchronized multimodal recording for badminton motion analysis.
+
+<p align="center">
+  <img src="assets/data_collection_framework.png" width="100%">
+</p>
 ## What is already implemented
 
 - locked P01-P35 control-point generation and validation;
