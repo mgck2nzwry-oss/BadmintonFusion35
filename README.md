@@ -34,6 +34,13 @@ The acquisition system combines four fixed cameras with wearable inertial measur
 <p align="center">
   <img src="assets/sensors_to_use.png" width="100%">
 </p>
+## Experimental Environment
+
+The experimental environment was configured to provide a standardized badminton motion-capture space for synchronized multi-view video and wearable IMU recording. The environment includes the badminton court, defined capture region, camera viewpoints, calibration control points, and participant action area.
+
+<p align="center">
+  <img src="assets/experimental_environment..jpg" width="100%">
+</p>
 ## What is already implemented
 
 - locked P01-P35 control-point generation and validation;
