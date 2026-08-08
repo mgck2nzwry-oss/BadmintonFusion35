@@ -194,3 +194,9 @@ See [method provenance](docs/METHOD_PROVENANCE.md) and the
 [relationship to existing projects](docs/RELATED_WORK.md), then the
 [validation environment](docs/VALIDATION_ENVIRONMENT.md) and
 [release checklist](docs/RELEASE_CHECKLIST.md), before any public push.
+## Contact
+
+If you have any questions regarding the dataset, please feel free to contact:
+
+**Zhongfan Wang**  
+Email: **1394162031@qq.com**
