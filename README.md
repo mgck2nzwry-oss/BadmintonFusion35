@@ -32,7 +32,8 @@ The experimental environment used a fixed multi-camera configuration with court-
 The acquisition system combines four fixed cameras with wearable inertial measurement units (IMUs) to capture visual and inertial information during badminton movements.
 
 <p align="center">
-  <img src="assets/sensors_to_use.png" width="100%">
+  <img src="assets/sensors_to_use.png" width="48%">
+  <img src="assets/sensors_to_use_2.png" width="48%">
 </p>
 ## Experimental Environment
 
