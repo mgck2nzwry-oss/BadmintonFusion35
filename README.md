@@ -19,6 +19,19 @@ The data collection framework integrates multi-view video acquisition, court cal
 <p align="center">
   <img src="assets/data_collection_framework.png" width="100%">
 </p>
+## Court and Device Deployment
+
+The experimental environment used a fixed multi-camera configuration with court-based calibration and wearable IMU devices. The deployment layout defines the spatial relationship among the badminton court, camera viewpoints, calibration control points, and wearable sensing devices.
+
+<p align="center">
+  <img src="assets/court_device_deployment.png.png" width="100%">
+</p>
+
+## What is already implemented
+
+
+
+
 ## What is already implemented
 
 - locked P01-P35 control-point generation and validation;
