@@ -27,11 +27,13 @@ The experimental environment used a fixed multi-camera configuration with court-
   <img src="assets/court_device_deployment.png.png" width="100%">
 </p>
 
-## What is already implemented
+## Sensors and Capture Devices
 
+The acquisition system combines four fixed cameras with wearable inertial measurement units (IMUs) to capture visual and inertial information during badminton movements.
 
-
-
+<p align="center">
+  <img src="assets/sensors_to_use.png" width="100%">
+</p>
 ## What is already implemented
 
 - locked P01-P35 control-point generation and validation;
