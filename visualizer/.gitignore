@@ -41,4 +41,5 @@ dev.stderr.log
 /outputs/
 /work/
 /.package-stage-*/
+/.site-publish-*/
 /courtscope-site.tar.gz
