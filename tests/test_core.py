@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 from tempfile import TemporaryDirectory
+import hashlib
+import shutil
 import sys
 import unittest
 
@@ -29,7 +31,7 @@ from badminton_court35.demo import build_demo
 from badminton_court35.imu.filtering import filter_contiguous_segments
 from badminton_court35.imu.timebase import reconstruct_timestamp, timebase_audit
 from badminton_court35.qc.inclusion import apply_inclusion_rules
-from badminton_court35.visualization import export_public_dashboard_data
+from badminton_court35.visualization import build_dashboard_evidence, export_public_dashboard_data
 
 
 class ControlPointTests(unittest.TestCase):
@@ -184,6 +186,24 @@ class AuditAndDemoTests(unittest.TestCase):
             self.assertEqual(report["status"], "PASS")
             self.assertNotIn("acc_x_g", exported)
             self.assertNotIn("private_path", exported)
+
+    def test_python_builds_signed_dashboard_evidence(self) -> None:
+        project_root = Path(__file__).resolve().parents[1]
+        with TemporaryDirectory() as directory:
+            output = Path(directory)
+            for name in ("paper-summary.json", "audit-summary.json"):
+                shutil.copy2(project_root / "visualizer" / "public" / "data" / name, output / name)
+            report = build_dashboard_evidence(project_root, output)
+            self.assertEqual(report["status"], "PASS_WITH_LIMITATION")
+            self.assertEqual(report["calculationAuthority"], "badminton_court35 Python package")
+            self.assertTrue(all(item["lockedChecksumVerified"] for item in report["inputs"][:3]))
+            self.assertEqual(
+                [item["status"] for item in report["checks"] if item["id"] == "classifier-training"],
+                ["UNVERIFIED"],
+            )
+            for artifact in report["artifacts"]:
+                path = output / Path(artifact["path"]).name
+                self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), artifact["sha256"])
 
     def test_calibration_audit_and_demo(self) -> None:
         with TemporaryDirectory() as directory:

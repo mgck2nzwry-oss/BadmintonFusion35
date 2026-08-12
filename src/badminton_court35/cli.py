@@ -24,6 +24,7 @@ from .imu.timebase import reconstruct_timestamp, timebase_audit
 from .pipeline.pose2sim import SUPPORTED_STAGES, run_pose2sim
 from .qc.inclusion import apply_inclusion_rules
 from .real_demo import export_a10_r10
+from .visualization import build_dashboard_evidence
 
 
 def _json_default(value: object) -> object:
@@ -189,6 +190,12 @@ def _export_real_demo(args: Namespace) -> int:
     return 0 if report["status"] == "PASS" else 2
 
 
+def _build_dashboard_evidence(args: Namespace) -> int:
+    report = build_dashboard_evidence(args.project_root, args.output_dir)
+    _emit(report)
+    return 0 if report["status"] == "PASS_WITH_LIMITATION" else 2
+
+
 def build_parser() -> ArgumentParser:
     parser = ArgumentParser(prog="court35", description="BadmintonCourt35 reproducibility CLI")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -277,6 +284,14 @@ def build_parser() -> ArgumentParser:
     command.add_argument("--output-dir", required=True)
     command.add_argument("--report")
     command.set_defaults(handler=_export_real_demo)
+
+    command = sub.add_parser(
+        "build-dashboard-evidence",
+        help="recompute and sign the public CourtScope research artifacts with Python",
+    )
+    command.add_argument("--project-root", default=".")
+    command.add_argument("--output-dir", default="visualizer/public/data")
+    command.set_defaults(handler=_build_dashboard_evidence)
     return parser
 
 

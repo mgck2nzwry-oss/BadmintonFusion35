@@ -139,6 +139,22 @@ the public JSON interface from a de-identified derived IMU table and its metric 
 exporter uses an allow-list and rejects missing contract fields rather than copying arbitrary
 source columns.
 
+CourtScope's published trial, metric and calibration JSON can also be recomputed by the
+same Python package instead of being maintained as presentation-only files:
+
+```powershell
+court35 build-dashboard-evidence `
+  --project-root . `
+  --output-dir "visualizer/public/data"
+```
+
+This command verifies the locked A10-R10 input checksums, regenerates the allowlisted
+public artifacts, records the calculation environment and parameters, and writes
+`research-evidence.json` with SHA-256 digests for browser-side integrity verification.
+The manifest deliberately retains `UNVERIFIED` labels for classifier retraining and
+centimetre-level spatial accuracy; software provenance does not remove those scientific
+limitations.
+
 ## Pose2Sim safety boundary
 
 The adapter is a dry run unless `--execute` is provided:

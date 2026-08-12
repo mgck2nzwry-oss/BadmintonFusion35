@@ -11,6 +11,21 @@ type PaperSummary = { actions: Record<string, string>; metrics: PaperMetric[]; e
 type Audit = { status: string; sections: Record<string, { status: string; [key: string]: unknown }> };
 type CalibrationCamera = { camera: string; status: string; visiblePoints: number; robustInliers: number; inlierRatio: number; robustRmsePx: number; pointLossReserve: number; suggestedReview: { pointId: string; residualPx: number }[]; recommendedAction: string };
 type CalibrationResilience = { report: { status: string; minimum_robust_inliers: number; minimum_inlier_ratio: number; review_rmse_px: number; automatic_changes_applied: boolean; safe_adaptation: string; accuracy_boundary: string }; cameras: CalibrationCamera[] };
+type EvidenceArtifact = { path: string; sha256: string; role: string };
+type ResearchEvidence = {
+  schemaVersion: string;
+  status: string;
+  trialId: string;
+  calculationAuthority: string;
+  architecture: string;
+  reproduction: { command: string; entrypoint: string; generatorSha256: string; repository: string };
+  environment: Record<string, string>;
+  parameters: { visualRateHz: number; imuRateHz: number; mappingMaxErrorMs: number; filter: { type: string; cutoff_hz: number; order: number; bridge_long_gaps: boolean }; qualityControl: Record<string, string | number | boolean>; calibrationGate: { minimumRobustInliers: number; minimumInlierRatio: number; reviewRmsePx: number; automaticChangesApplied: boolean; validationLevel: string } };
+  inputs: { path: string; sha256: string; lockedChecksumVerified: boolean | null }[];
+  artifacts: EvidenceArtifact[];
+  checks: { id: string; status: string }[];
+  limitations: string[];
+};
 
 const deviceColors: Record<string, string> = {
   WTLhand: "#2364aa",
@@ -114,13 +129,82 @@ function downloadCsv(rows: Record<string, string | number | boolean>[], filename
   URL.revokeObjectURL(link.href);
 }
 
+async function sha256Response(path: string) {
+  const response = await fetch(path, { cache: "no-store" });
+  if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
+  const digest = await crypto.subtle.digest("SHA-256", await response.arrayBuffer());
+  return Array.from(new Uint8Array(digest)).map((value) => value.toString(16).padStart(2, "0")).join("");
+}
+
+function ReproducibilityPanel({ evidence }: { evidence: ResearchEvidence }) {
+  const [verification, setVerification] = useState<Record<string, "checking" | "match" | "mismatch">>({});
+  useEffect(() => {
+    let active = true;
+    setVerification(Object.fromEntries(evidence.artifacts.map((item) => [item.path, "checking"])));
+    Promise.all(evidence.artifacts.map(async (artifact) => {
+      try {
+        const actual = await sha256Response(artifact.path);
+        return [artifact.path, actual === artifact.sha256 ? "match" : "mismatch"] as const;
+      } catch {
+        return [artifact.path, "mismatch"] as const;
+      }
+    })).then((items) => { if (active) setVerification(Object.fromEntries(items)); });
+    return () => { active = false; };
+  }, [evidence]);
+  const verifiedCount = Object.values(verification).filter((status) => status === "match").length;
+  const allVerified = verifiedCount === evidence.artifacts.length;
+  const checkLabels: Record<string, string> = {
+    "locked-input-checksums": "锁定输入校验和",
+    "python-output-recomputed": "Python 结果重算",
+    "public-field-allowlist": "公开字段白名单",
+    "missing-values-preserved": "缺失值保留",
+    "calibration-never-auto-mutates": "标定不自动篡改",
+    "classifier-training": "分类器训练复现",
+    "centimetre-spatial-accuracy": "厘米级空间验证",
+  };
+  return (
+    <section className="repro-section">
+      <div className="section-heading"><div><p>PYTHON-BACKED REPRODUCIBILITY</p><h2>科研计算与可追溯证据</h2></div><div className={`audit-badge ${allVerified ? "" : "checking"}`}>{allVerified ? `在线校验通过 ${verifiedCount}/${evidence.artifacts.length}` : `正在校验 ${verifiedCount}/${evidence.artifacts.length}`}</div></div>
+      <div className="compute-contract">
+        <article><span>01</span><b>锁定输入</b><p>真实样例、标定残差和参数文件先通过 SHA-256 完整性检查。</p></article>
+        <i>→</i><article><span>02</span><b>Python 重算</b><p>BadmintonCourt35 生成派生信号、指标与相机质量诊断。</p></article>
+        <i>→</i><article><span>03</span><b>证据清单</b><p>记录环境、参数、入口函数、输入和每个输出的摘要。</p></article>
+        <i>→</i><article><span>04</span><b>网页复核</b><p>浏览器重新计算输出摘要；不匹配时显示验证失败。</p></article>
+      </div>
+      <div className="repro-grid">
+        <article className="provenance-card">
+          <div className="card-kicker">可执行复现入口</div>
+          <h3>{evidence.calculationAuthority}</h3>
+          <code>{evidence.reproduction.command}</code>
+          <dl><div><dt>Schema</dt><dd>{evidence.schemaVersion}</dd></div><div><dt>入口函数</dt><dd>{evidence.reproduction.entrypoint}</dd></div><div><dt>生成器 SHA-256</dt><dd>{evidence.reproduction.generatorSha256}</dd></div></dl>
+          <a href={evidence.reproduction.repository} target="_blank" rel="noreferrer">查看完整 Python 实现与测试 ↗</a>
+        </article>
+        <article className="environment-card">
+          <div className="card-kicker">记录的计算环境</div>
+          <div className="environment-list">{Object.entries(evidence.environment).map(([name, value]) => <div key={name}><span>{name}</span><b>{value}</b></div>)}</div>
+          <div className="parameter-note"><b>锁定方法</b><span>{evidence.parameters.filter.type}，{evidence.parameters.filter.cutoff_hz} Hz，{evidence.parameters.filter.order} 阶；视觉 {evidence.parameters.visualRateHz} Hz → IMU {evidence.parameters.imuRateHz} Hz；最大映射误差 {evidence.parameters.mappingMaxErrorMs.toFixed(3)} ms。</span></div>
+        </article>
+      </div>
+      <div className="artifact-card">
+        <div className="card-kicker">浏览器端实时完整性验证</div>
+        <div className="artifact-list">{evidence.artifacts.map((artifact) => <div key={artifact.path}><span className={`verify-dot ${verification[artifact.path] ?? "checking"}`} /><div><b>{artifact.path.replace("/data/", "")}</b><small>{artifact.role === "python_recomputed" ? "由 Python 重算" : "经统计审计的论文导出"}</small></div><code>{artifact.sha256}</code><em>{verification[artifact.path] === "match" ? "一致" : verification[artifact.path] === "mismatch" ? "不一致" : "校验中"}</em></div>)}</div>
+      </div>
+      <div className="scientific-checks">
+        {evidence.checks.map((check) => <article className={check.status === "PASS" ? "pass" : "unverified"} key={check.id}><span>{check.status === "PASS" ? "✓" : "!"}</span><div><b>{checkLabels[check.id] ?? check.id}</b><small>{check.status === "PASS" ? "机器检查通过" : "尚未完成科学验证"}</small></div></article>)}
+      </div>
+      <div className="repro-boundary"><b>可信性边界</b><div>{evidence.limitations.map((item) => <p key={item}>• {item}</p>)}</div></div>
+    </section>
+  );
+}
+
 export function Dashboard() {
   const points = useJson<Point[]>("/data/a10-r10-timeseries.json") ?? [];
   const deviceMetrics = useJson<DeviceMetric[]>("/data/a10-r10-metrics.json") ?? [];
   const paper = useJson<PaperSummary>("/data/paper-summary.json");
   const audit = useJson<Audit>("/data/audit-summary.json");
   const resilience = useJson<CalibrationResilience>("/data/calibration-resilience.json");
-  const [tab, setTab] = useState<"trial" | "compare" | "calibration" | "evidence">("trial");
+  const researchEvidence = useJson<ResearchEvidence>("/data/research-evidence.json");
+  const [tab, setTab] = useState<"trial" | "compare" | "calibration" | "evidence" | "reproducibility">("trial");
   const [devices, setDevices] = useState(["WTLhand", "WTLknee", "WTRhand", "WTRknee"]);
   const [signal, setSignal] = useState<"dynamicAcceleration" | "gyroMagnitude">("gyroMagnitude");
   const [metricId, setMetricId] = useState("rwrist_speed_p95_m_s");
@@ -134,8 +218,8 @@ export function Dashboard() {
     <main>
       <header className="topbar">
         <a href="#main-content" className="brand"><span className="brand-mark">35</span><span><b>CourtScope</b><small>羽毛球视觉–IMU研究工具</small></span></a>
-        <div className="status-pill"><span /> 公开安全数据 · v0.2</div>
-        <a className="github-link" href="https://github.com/mgck2nzwry-oss/Court35" target="_blank" rel="noreferrer">查看源代码 ↗</a>
+        <div className="status-pill"><span /> Python 计算证据 · v0.2</div>
+        <a className="github-link" href="https://github.com/mgck2nzwry-oss/BadmintonFusion35" target="_blank" rel="noreferrer">查看源代码 ↗</a>
       </header>
 
       <section className="hero" id="main-content">
@@ -157,6 +241,7 @@ export function Dashboard() {
         <button className={tab === "compare" ? "active" : ""} onClick={() => setTab("compare")}><span>02</span> 动作比较</button>
         <button className={tab === "calibration" ? "active" : ""} onClick={() => setTab("calibration")}><span>03</span> 场地与相机容错</button>
         <button className={tab === "evidence" ? "active" : ""} onClick={() => setTab("evidence")}><span>04</span> 统计证据</button>
+        <button className={tab === "reproducibility" ? "active" : ""} onClick={() => setTab("reproducibility")}><span>05</span> Python 可复现性</button>
       </nav>
 
       {tab === "trial" && (
@@ -249,6 +334,8 @@ export function Dashboard() {
           </div>
         </section>
       )}
+
+      {tab === "reproducibility" && researchEvidence && <ReproducibilityPanel evidence={researchEvidence} />}
 
       <footer><div><b>CourtScope</b><span>由 BadmintonCourt35 可复现计算包驱动</span></div><p>研究工具，不用于临床诊断或未经验证的运动表现判定。</p></footer>
     </main>
