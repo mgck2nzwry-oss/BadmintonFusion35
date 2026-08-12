@@ -18,6 +18,7 @@ from badminton_court35.analysis.stats import (
 )
 from badminton_court35.analysis.paper import binary_roc_auc, multiclass_roc_metrics
 from badminton_court35.calibration.audit import audit_residual_table
+from badminton_court35.calibration.resilience import assess_calibration_resilience
 from badminton_court35.calibration.control_points import (
     expected_control_points,
     read_control_points,
@@ -28,6 +29,7 @@ from badminton_court35.demo import build_demo
 from badminton_court35.imu.filtering import filter_contiguous_segments
 from badminton_court35.imu.timebase import reconstruct_timestamp, timebase_audit
 from badminton_court35.qc.inclusion import apply_inclusion_rules
+from badminton_court35.visualization import export_public_dashboard_data
 
 
 class ControlPointTests(unittest.TestCase):
@@ -130,6 +132,59 @@ class AnalysisTests(unittest.TestCase):
 
 
 class AuditAndDemoTests(unittest.TestCase):
+    def test_calibration_resilience_tolerates_small_losses_but_blocks_weak_camera(self) -> None:
+        rows = []
+        for camera, robust_count, robust_rmse in (("cam01", 10, 3.0), ("cam02", 5, 3.0)):
+            for index in range(12):
+                rows.append(
+                    {
+                        "Camera": camera,
+                        "Point_ID": f"P{index + 1:02d}",
+                        "Residual_px": float(index + 1),
+                        "Robust_inlier_count": robust_count,
+                        "Robust_inlier_RMSE_px": robust_rmse,
+                    }
+                )
+        summary, report = assess_calibration_resilience(pd.DataFrame(rows))
+        by_camera = summary.set_index("Camera")
+        self.assertEqual(by_camera.loc["cam01", "Status"], "TOLERANT_WITH_REVIEW")
+        self.assertEqual(by_camera.loc["cam01", "AdditionalRobustPointLossReserve"], 4)
+        self.assertEqual(by_camera.loc["cam02", "Status"], "BLOCKED")
+        self.assertEqual(report["status"], "BLOCKED")
+        self.assertFalse(report["automatic_changes_applied"])
+
+    def test_public_dashboard_export_excludes_raw_axes(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            imu = pd.DataFrame(
+                {
+                    "device": ["WTRhand"],
+                    "relative_time_s": [0.0],
+                    "valid": [True],
+                    "dynamic_acceleration_proxy_g": [0.4],
+                    "gyro_magnitude_deg_s": [120.0],
+                    "acc_x_g": [9.9],
+                    "private_path": ["C:/private/raw.csv"],
+                }
+            )
+            metrics = pd.DataFrame(
+                {
+                    "Device": ["WTRhand"], "BodyLocation": ["Right hand"],
+                    "ValidPercent": [100.0], "DynamicAccelerationRMS_g": [0.4],
+                    "DynamicAccelerationPeak_g": [0.7], "GyroMagnitudeRMS_deg_s": [120.0],
+                    "GyroMagnitudePeak_deg_s": [240.0], "GyroPeakTime_s": [0.5],
+                    "MetricStatus": ["OK"],
+                }
+            )
+            imu_path, metrics_path = root / "imu.csv", root / "metrics.csv"
+            imu.to_csv(imu_path, index=False)
+            metrics.to_csv(metrics_path, index=False)
+            report = export_public_dashboard_data(imu_path, metrics_path, root / "public")
+            exported = (root / "public" / "timeseries.json").read_text(encoding="utf-8")
+            self.assertEqual(report["status"], "PASS")
+            self.assertNotIn("acc_x_g", exported)
+            self.assertNotIn("private_path", exported)
+
     def test_calibration_audit_and_demo(self) -> None:
         with TemporaryDirectory() as directory:
             root = Path(directory)

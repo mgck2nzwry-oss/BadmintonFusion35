@@ -57,6 +57,10 @@ The experimental environment was configured to provide a standardized badminton 
 - an anonymous synthetic end-to-end example;
 - a de-identified real-trial chain linking synchronized four-camera 2D keypoints,
   35-point calibration, filtered 3D coordinates, IMU alignment and trial metrics.
+- CourtScope, a browser-based research dashboard for exploring the public A10-R10
+  signal chain, comparing de-identified action summaries and auditing effect sizes.
+- calibration-resilience diagnostics that quantify per-camera point-loss reserve,
+  identify high-residual points for review and block unsafe automatic adaptation.
 
 ## Installation
 
@@ -116,6 +120,24 @@ Run all standard-library tests:
 $env:PYTHONPATH = "$PWD\src"
 python -m unittest discover -s tests -v
 ```
+
+## CourtScope visualization
+
+The `visualizer/` directory contains the interactive companion application. It exposes only
+the explicitly public, derived A10-R10 signals and paper-level aggregate summaries. It does
+not include participant names, private host paths, raw sensor axes, raw videos or additional
+participant trials.
+
+```powershell
+Set-Location visualizer
+pnpm install
+pnpm run dev
+```
+
+The Python helper `badminton_court35.visualization.export_public_dashboard_data` can regenerate
+the public JSON interface from a de-identified derived IMU table and its metric summary. The
+exporter uses an allow-list and rejects missing contract fields rather than copying arbitrary
+source columns.
 
 ## Pose2Sim safety boundary
 
