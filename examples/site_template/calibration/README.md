@@ -1,0 +1,1 @@
+Use the P01--P35 coordinates as the extrinsic-calibration object points. Do not move any camera after recording all targets. Store the camera-specific intrinsics, extrinsics, residual table and calibration image/video paths beside this file.

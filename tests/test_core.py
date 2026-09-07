@@ -27,6 +27,7 @@ from badminton_court35.calibration.control_points import (
     validate_control_points,
     write_control_points,
 )
+from badminton_court35.calibration.deployment import create_site_package, validate_site_package
 from badminton_court35.demo import build_demo
 from badminton_court35.imu.filtering import filter_contiguous_segments
 from badminton_court35.imu.timebase import reconstruct_timestamp, timebase_audit
@@ -47,6 +48,59 @@ class ControlPointTests(unittest.TestCase):
         with TemporaryDirectory() as directory:
             path = write_control_points(expected_control_points(), Path(directory) / "points.csv")
             self.assertEqual(read_control_points(path), expected_control_points())
+
+
+class DeploymentTests(unittest.TestCase):
+    def test_site_template_requires_local_confirmation(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory) / "venue"
+            created = create_site_package(root, "Test venue")
+            self.assertEqual(created["status"], "TEMPLATE_CREATED")
+            report = validate_site_package(root)
+            self.assertEqual(report["status"], "REVIEW_REQUIRED")
+            self.assertEqual(report["control_points"]["status"], "PASS")
+            self.assertEqual(report["camera_ids"], ["cam01", "cam02", "cam03", "cam04"])
+
+    def test_site_reports_ready_only_after_all_deployment_records(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory) / "venue"
+            create_site_package(root, "Test venue")
+            site = root / "site.toml"
+            text = site.read_text(encoding="utf-8")
+            for flag in (
+                "court_survey_confirmed",
+                "intrinsic_calibration_confirmed",
+                "extrinsic_calibration_confirmed",
+                "coverage_test_confirmed",
+                "synchronization_event_confirmed",
+            ):
+                text = text.replace(f"{flag} = false", f"{flag} = true")
+            site.write_text(text, encoding="utf-8")
+            camera = pd.read_csv(root / "camera_manifest.csv")
+            for column in (
+                "Intrinsics_Calibrated",
+                "Extrinsics_Calibrated",
+                "Coverage_Test_Passed",
+                "Fixed_After_Calibration",
+            ):
+                camera[column] = "true"
+            camera.to_csv(root / "camera_manifest.csv", index=False)
+            report = validate_site_package(root)
+            self.assertEqual(report["status"], "READY_FOR_RELATIVE_ANALYSIS")
+            self.assertFalse(report["absolute_accuracy_claim"] == "SUPPORTED_ONLY_WITH_HELD_OUT_VALIDATION")
+
+    def test_site_blocks_nonstandard_geometry(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory) / "venue"
+            create_site_package(root, "Test venue")
+            site = root / "site.toml"
+            site.write_text(
+                site.read_text(encoding="utf-8").replace("doubles_court_width_m = 6.10", "doubles_court_width_m = 5.00"),
+                encoding="utf-8",
+            )
+            report = validate_site_package(root)
+            self.assertEqual(report["status"], "BLOCKED")
+            self.assertTrue(any("doubles_court_width_m" in item for item in report["blockers"]))
 
 
 class TimeAndFilterTests(unittest.TestCase):

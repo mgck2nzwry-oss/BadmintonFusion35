@@ -9,7 +9,7 @@ t-SNE and sensor-data visualization for a 25-player wearable-sensor badminton da
 It is the closest publication-style code-release precedent for this project, but it does
 not implement this study's four-camera court geometry, formal P01-P35 non-coplanar
 control field, Pose2Sim reconstruction, 60-to-50 Hz time mapping or participant-specific
-variable gates. BadmintonCourt35 should cite it as related work, not present itself as a
+variable gates. BadmintonFusion35 should cite it as related work, not present itself as a
 fork or a replacement dataset.
 
 ## Pose2Sim
@@ -18,7 +18,7 @@ Repository: https://github.com/perfanalytics/pose2sim
 
 Pose2Sim is the upstream multi-camera markerless-kinematics engine used by the formal
 workflow. It already provides camera calibration, pose estimation, synchronization,
-triangulation, 3D filtering and downstream kinematics. BadmintonCourt35 therefore keeps
+triangulation, 3D filtering and downstream kinematics. BadmintonFusion35 therefore keeps
 only a thin, dry-run-by-default adapter and concentrates on study-specific geometry,
 provenance, IMU reconstruction, cross-modal mapping, exclusions and paper statistics.
 Pose2Sim remains a separate dependency governed by its own license and citation terms.

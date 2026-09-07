@@ -1,0 +1,4 @@
+﻿Device_ID,Body_Location,Manufacturer_Model,Firmware,Sample_Rate_Hz,Axis_Convention_Recorded,Clock_or_Sync_Method,Mounting_Photo_Recorded,Notes
+imu_hand,racket-side hand,,,50,false,,false,Complete only for sensors used at this site.
+imu_left_knee,left knee,,,50,false,,false,Complete only for sensors used at this site.
+imu_right_knee,right knee,,,50,false,,false,Complete only for sensors used at this site.

@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite this repository and the associated paper when available."
-title: "BadmintonCourt35"
+title: "BadmintonFusion35"
 type: software
-version: 0.2.0
-date-released: 2026-08-07
+version: 0.3.0
+date-released: 2026-09-07
 authors:
   - family-names: "Wang"
     given-names: "Zhongfan"
   - family-names: "Xia"
     given-names: "Yichen"
-repository-code: "https://github.com/mgck2nzwry-oss/Court35"
+repository-code: "https://github.com/mgck2nzwry-oss/BadmintonFusion35"
 license: MIT

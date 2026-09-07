@@ -167,7 +167,7 @@ function ReproducibilityPanel({ evidence }: { evidence: ResearchEvidence }) {
       <div className="section-heading"><div><p>PYTHON-BACKED REPRODUCIBILITY</p><h2>科研计算与可追溯证据</h2></div><div className={`audit-badge ${allVerified ? "" : "checking"}`}>{allVerified ? `在线校验通过 ${verifiedCount}/${evidence.artifacts.length}` : `正在校验 ${verifiedCount}/${evidence.artifacts.length}`}</div></div>
       <div className="compute-contract">
         <article><span>01</span><b>锁定输入</b><p>真实样例、标定残差和参数文件先通过 SHA-256 完整性检查。</p></article>
-        <i>→</i><article><span>02</span><b>Python 重算</b><p>BadmintonCourt35 生成派生信号、指标与相机质量诊断。</p></article>
+        <i>→</i><article><span>02</span><b>Python 重算</b><p>BadmintonFusion35 生成派生信号、指标与相机质量诊断。</p></article>
         <i>→</i><article><span>03</span><b>证据清单</b><p>记录环境、参数、入口函数、输入和每个输出的摘要。</p></article>
         <i>→</i><article><span>04</span><b>网页复核</b><p>浏览器重新计算输出摘要；不匹配时显示验证失败。</p></article>
       </div>
@@ -337,7 +337,7 @@ export function Dashboard() {
 
       {tab === "reproducibility" && researchEvidence && <ReproducibilityPanel evidence={researchEvidence} />}
 
-      <footer><div><b>CourtScope</b><span>由 BadmintonCourt35 可复现计算包驱动</span></div><p>研究工具，不用于临床诊断或未经验证的运动表现判定。</p></footer>
+      <footer><div><b>CourtScope</b><span>由 BadmintonFusion35 可复现计算包驱动</span></div><p>研究工具，不用于临床诊断或未经验证的运动表现判定。</p></footer>
     </main>
   );
 }

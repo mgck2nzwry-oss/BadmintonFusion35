@@ -3,9 +3,9 @@ requires = ["setuptools>=69", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "badminton-court35"
-version = "0.2.0"
-description = "Reproducible 35-point, four-camera visual-IMU workflow for badminton training research"
+name = "badminton-fusion35"
+version = "0.3.0"
+description = "Portable 35-point, four-camera visual-IMU workflow for badminton training research"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"

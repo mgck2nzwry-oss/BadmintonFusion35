@@ -1,0 +1,25 @@
+# Court35 site deployment record. Complete this file before acquisition.
+[site]
+name = "Example regulation-court deployment"
+court_standard = "Regulation badminton doubles court (nominal geometry)"
+coordinate_system = "Origin at the net centre; X lateral, Y net-to-backcourt, Z vertical; metres"
+full_court_length_m = 13.40
+doubles_court_width_m = 6.10
+singles_court_width_m = 5.18
+net_center_height_m = 1.524
+net_post_height_m = 1.55
+short_service_line_from_net_m = 1.98
+doubles_long_service_line_from_back_m = 0.76
+
+[acquisition]
+visual_frame_rate_hz = 60
+imu_sample_rate_hz = 50
+shared_sync_event = "Record the same LED, clap, or impact event in every stream"
+
+[validation]
+court_survey_confirmed = false
+intrinsic_calibration_confirmed = false
+extrinsic_calibration_confirmed = false
+coverage_test_confirmed = false
+synchronization_event_confirmed = false
+held_out_3d_validation_confirmed = false

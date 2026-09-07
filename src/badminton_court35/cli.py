@@ -18,6 +18,7 @@ from .calibration.control_points import (
     validate_control_points,
     write_control_points,
 )
+from .calibration.deployment import create_site_package, validate_site_package
 from .demo import build_demo
 from .imu.filtering import filter_contiguous_segments
 from .imu.timebase import reconstruct_timestamp, timebase_audit
@@ -196,8 +197,20 @@ def _build_dashboard_evidence(args: Namespace) -> int:
     return 0 if report["status"] == "PASS_WITH_LIMITATION" else 2
 
 
+def _scaffold_site(args: Namespace) -> int:
+    report = create_site_package(args.output_dir, args.site_name)
+    _emit(report, args.report)
+    return 0
+
+
+def _validate_site(args: Namespace) -> int:
+    report = validate_site_package(args.site_dir)
+    _emit(report, args.report)
+    return 0 if report["status"] in {"READY_FOR_RELATIVE_ANALYSIS", "READY_WITH_HELD_OUT_VALIDATION"} else 2
+
+
 def build_parser() -> ArgumentParser:
-    parser = ArgumentParser(prog="court35", description="BadmintonCourt35 reproducibility CLI")
+    parser = ArgumentParser(prog="court35", description="BadmintonFusion35 reproducibility and deployment CLI")
     sub = parser.add_subparsers(dest="command", required=True)
 
     command = sub.add_parser("validate-control-points", help="validate the locked formal 35-point layout")
@@ -209,6 +222,23 @@ def build_parser() -> ArgumentParser:
     command = sub.add_parser("export-control-points", help="write the locked formal 35-point CSV")
     command.add_argument("--output", required=True)
     command.set_defaults(handler=_export_points)
+
+    command = sub.add_parser(
+        "scaffold-site",
+        help="create a new regulation-court deployment package without overwriting an existing folder",
+    )
+    command.add_argument("--output-dir", required=True)
+    command.add_argument("--site-name", required=True)
+    command.add_argument("--report")
+    command.set_defaults(handler=_scaffold_site)
+
+    command = sub.add_parser(
+        "validate-site",
+        help="audit a completed four-camera/IMU site deployment package",
+    )
+    command.add_argument("--site-dir", required=True)
+    command.add_argument("--report")
+    command.set_defaults(handler=_validate_site)
 
     command = sub.add_parser("audit-calibration", help="audit per-camera pixel residuals")
     command.add_argument("--residuals", required=True)
@@ -303,3 +333,7 @@ def main(argv: list[str] | None = None) -> int:
     except Exception as exc:  # one controlled CLI error boundary
         print(json.dumps({"status": "ERROR", "error": str(exc)}, ensure_ascii=False, indent=2), file=sys.stderr)
         return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

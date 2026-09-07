@@ -2,12 +2,12 @@
 
 ### A Four-Camera Visual–IMU Dataset for Badminton Motion Analysis
 
-BadmintonCourt35 is a reproducibility package for a court-standardized badminton
+BadmintonFusion35 is a reproducibility and deployment package for a court-standardized badminton
 training study using four fixed cameras, 35 non-coplanar scene control points and four
 limb-mounted IMUs. It converts the original participant-specific scripts into explicit,
 testable functions and a single command-line interface.
 
-This is a **public research-code release**. Version 0.2.0 includes a limited four-view
+This is a **public research-code release**. Version 0.3.0 includes a limited four-view
 demonstration and a compact end-to-end `A10-R10` evidence package from one consenting
 author-participant. It does not claim that the full
 multi-participant paper dataset or every paper result is publicly reproducible.
@@ -68,7 +68,7 @@ Use the existing Pose2Sim Python environment:
 
 ```powershell
 $Python = "$env:USERPROFILE\.venv\pose2sim\Scripts\python.exe"
-Set-Location "<path-to-BadmintonCourt35>"
+Set-Location "<path-to-BadmintonFusion35>"
 & $Python -m pip install -e .
 ```
 
@@ -120,6 +120,23 @@ Run all standard-library tests:
 $env:PYTHONPATH = "$PWD\src"
 python -m unittest discover -s tests -v
 ```
+
+## Deploy on another regulation badminton court
+
+The repository can create a site-specific deployment package for a new court.
+It preserves the fixed P01--P35 geometry while requiring the new venue's own
+camera calibration, four-camera coverage evidence, IMU/synchronisation record
+and quality-control gate.
+
+```powershell
+court35 scaffold-site --site-name "Venue-2026-01" --output-dir ".\Venue-2026-01"
+court35 validate-site --site-dir ".\Venue-2026-01" --report ".\Venue-2026-01\deployment_report.json"
+```
+
+See [the new-court deployment protocol](docs/COURT_DEPLOYMENT_PROTOCOL.md) before
+collecting data. `READY_FOR_RELATIVE_ANALYSIS` supports the comparative
+motion/visualisation workflow; it is not an absolute-accuracy claim. A site
+must retain a held-out 3-D validation before reporting spatial accuracy.
 
 ## CourtScope visualization
 
@@ -199,7 +216,7 @@ IMUs, trial metrics, provenance hashes and machine-readable audit results.
 
 The source code, calibration workflow, quality-auditing utilities and reproducible
 analysis pipeline are publicly available at
-<https://github.com/mgck2nzwry-oss/Court35>. Cite the software using the
+<https://github.com/mgck2nzwry-oss/BadmintonFusion35>. Cite the software using the
 repository's `CITATION.cff`. When the associated article is published, cite both the
 article and the archived software release.
 
@@ -207,14 +224,14 @@ Suggested manuscript statement:
 
 > The source code, calibration workflow, data-quality auditing utilities, and
 > reproducible analysis pipeline are publicly available on GitHub at
-> https://github.com/mgck2nzwry-oss/Court35 (version 0.2.0). A limited
+> https://github.com/mgck2nzwry-oss/BadmintonFusion35 (version 0.3.0). A limited
 > four-camera demonstration and a compact, de-identified A10-R10 evidence chain from one
 > consenting author-participant are provided; the complete multi-participant dataset is
 > not publicly distributed.
 
 ## Reproducibility status
 
-| Component | v0.2 status |
+| Component | v0.3 status |
 |---|---|
 | Formal 35-point geometry | Implemented and checked against P01 formal files |
 | Pose2Sim orchestration | Implemented; real execution requires explicit opt-in |
@@ -227,6 +244,7 @@ Suggested manuscript statement:
 | Real end-to-end example | A10-R10: 4-view 2D, 35-point calibration, 3D, aligned 4-IMU data and audits |
 | Human-participant media | Limited author-participant four-view demonstration; full dataset not public |
 | Public software license/citation | MIT; software citation metadata included |
+| New regulation-court deployment | Site scaffold, P01--P35 export, four-camera/IMU manifests and auditable deployment gate |
 
 See [method provenance](docs/METHOD_PROVENANCE.md) and the
 [paper reproducibility boundary](docs/PAPER_REPRODUCIBILITY.md), the

@@ -1,0 +1,5 @@
+﻿Camera_ID,Position_Label,Camera_Model,Lens_or_FOV,Resolution_px,Frame_Rate_Hz,Intrinsics_Calibrated,Extrinsics_Calibrated,Coverage_Test_Passed,Fixed_After_Calibration,Notes
+cam01,near-left,,,,60,false,false,false,false,Complete after local setup.
+cam02,near-right,,,,60,false,false,false,false,Complete after local setup.
+cam03,far-left,,,,60,false,false,false,false,Complete after local setup.
+cam04,far-right,,,,60,false,false,false,false,Complete after local setup.
