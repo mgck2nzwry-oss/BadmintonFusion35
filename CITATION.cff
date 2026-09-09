@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this software, please cite this repository and the associated paper when available."
 title: "BadmintonFusion35"
 type: software
-version: 0.3.0
-date-released: 2026-09-07
+version: 0.4.0
+date-released: 2026-09-09
 authors:
   - family-names: "Wang"
     given-names: "Zhongfan"

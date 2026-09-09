@@ -1,0 +1,7 @@
+.venv/
+local_assets/
+build/
+dist/
+*.spec
+__pycache__/
+*.py[cod]

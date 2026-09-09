@@ -23,6 +23,7 @@ from .demo import build_demo
 from .imu.filtering import filter_contiguous_segments
 from .imu.timebase import reconstruct_timestamp, timebase_audit
 from .pipeline.pose2sim import SUPPORTED_STAGES, run_pose2sim
+from .pipeline.evidence_chain import build_evidence_chain
 from .qc.inclusion import apply_inclusion_rules
 from .real_demo import export_a10_r10
 from .visualization import build_dashboard_evidence
@@ -197,6 +198,14 @@ def _build_dashboard_evidence(args: Namespace) -> int:
     return 0 if report["status"] == "PASS_WITH_LIMITATION" else 2
 
 
+def _build_evidence_chain(args: Namespace) -> int:
+    report = build_evidence_chain(
+        args.project_root, args.output_dir, action=args.action, repeat=args.repeat
+    )
+    _emit(report, args.report)
+    return 0 if report["status"] != "BLOCKED" else 2
+
+
 def _scaffold_site(args: Namespace) -> int:
     report = create_site_package(args.output_dir, args.site_name)
     _emit(report, args.report)
@@ -322,6 +331,17 @@ def build_parser() -> ArgumentParser:
     command.add_argument("--project-root", default=".")
     command.add_argument("--output-dir", default="visualizer/public/data")
     command.set_defaults(handler=_build_dashboard_evidence)
+
+    command = sub.add_parser(
+        "build-evidence-chain",
+        help="audit raw inputs through calibration, Pose2Sim outputs, IMU alignment and QC for one trial",
+    )
+    command.add_argument("--project-root", required=True)
+    command.add_argument("--output-dir", required=True)
+    command.add_argument("--action", default="A01")
+    command.add_argument("--repeat", type=int, default=1)
+    command.add_argument("--report")
+    command.set_defaults(handler=_build_evidence_chain)
     return parser
 
 

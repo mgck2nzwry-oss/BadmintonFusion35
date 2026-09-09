@@ -7,7 +7,7 @@ training study using four fixed cameras, 35 non-coplanar scene control points an
 limb-mounted IMUs. It converts the original participant-specific scripts into explicit,
 testable functions and a single command-line interface.
 
-This is a **public research-code release**. Version 0.3.0 includes a limited four-view
+This is a **public research-code release**. Version 0.4.0 includes a limited four-view
 demonstration and a compact end-to-end `A10-R10` evidence package from one consenting
 author-participant. It does not claim that the full
 multi-participant paper dataset or every paper result is publicly reproducible.
@@ -185,6 +185,45 @@ court35 pose2sim `
 Only after reviewing the printed plan should a real run use `--execute`. The code never
 deletes the original participant directory.
 
+## Complete trial evidence chain
+
+For an already processed trial, one command audits the complete path from raw videos
+to the desktop player rather than treating the interface as a presentation-only page:
+
+```powershell
+court35 build-evidence-chain `
+  --project-root "<FORMAL_POSE2SIM_PROJECT>" `
+  --action A01 --repeat 1 `
+  --output-dir "<FORMAL_POSE2SIM_PROJECT>\reports\A01_R01_evidence_chain"
+```
+
+The machine-readable JSON report records raw-file identities, the locked 35-point audit,
+final camera offsets from the Pose2Sim log, 2D output coverage, filtered 3D TRC
+coverage, visual--IMU mapping and quality-gate boundaries. It verifies existing
+outputs; it does not rerun inference or promote pixel residuals to a spatial-accuracy
+claim. See [the evidence-chain protocol](docs/EVIDENCE_CHAIN.md).
+
+## Desktop synchronised player
+
+The repository also includes a native Windows desktop application for inspection
+of one locally authorized trial. It synchronizes four Pose2Sim 2-D skeleton-overlay
+views, five live IMU/kinematic signals, a shared time cursor and the machine-readable
+evidence-chain state. The screenshot below is from the local A01-R1 demonstration;
+the underlying participant media and derived local package are excluded from Git.
+
+<p align="center">
+  <img src="assets/desktop_player_a01.png" alt="BadmintonFusion35 desktop player: four synchronized skeleton-overlay camera views, five live signals and evidence status" width="100%">
+</p>
+
+```powershell
+Set-Location "<path-to-BadmintonFusion35>"
+powershell -ExecutionPolicy Bypass -File desktop_app\run_a01_demo.ps1
+```
+
+See [the full experimental workflow](docs/EXPERIMENTAL_WORKFLOW.md),
+[the trial evidence-chain protocol](docs/EVIDENCE_CHAIN.md), and
+[the desktop player guide](desktop_app/README.md).
+
 ## Data policy
 
 Do not commit additional participant videos, raw IMU dumps, C3D files, archives or identifiable
@@ -224,14 +263,14 @@ Suggested manuscript statement:
 
 > The source code, calibration workflow, data-quality auditing utilities, and
 > reproducible analysis pipeline are publicly available on GitHub at
-> https://github.com/mgck2nzwry-oss/BadmintonFusion35 (version 0.3.0). A limited
+> https://github.com/mgck2nzwry-oss/BadmintonFusion35 (version 0.4.0). A limited
 > four-camera demonstration and a compact, de-identified A10-R10 evidence chain from one
 > consenting author-participant are provided; the complete multi-participant dataset is
 > not publicly distributed.
 
 ## Reproducibility status
 
-| Component | v0.3 status |
+| Component | v0.4 status |
 |---|---|
 | Formal 35-point geometry | Implemented and checked against P01 formal files |
 | Pose2Sim orchestration | Implemented; real execution requires explicit opt-in |
@@ -245,6 +284,7 @@ Suggested manuscript statement:
 | Human-participant media | Limited author-participant four-view demonstration; full dataset not public |
 | Public software license/citation | MIT; software citation metadata included |
 | New regulation-court deployment | Site scaffold, P01--P35 export, four-camera/IMU manifests and auditable deployment gate |
+| Desktop synchronised player | Four Pose2Sim skeleton-overlay A01-R1 views, five dynamic signals, evidence-chain status and one shared time cursor; local media are excluded from Git |
 
 See [method provenance](docs/METHOD_PROVENANCE.md) and the
 [paper reproducibility boundary](docs/PAPER_REPRODUCIBILITY.md), the
