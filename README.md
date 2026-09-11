@@ -224,6 +224,22 @@ See [the full experimental workflow](docs/EXPERIMENTAL_WORKFLOW.md),
 [the trial evidence-chain protocol](docs/EVIDENCE_CHAIN.md), and
 [the desktop player guide](desktop_app/README.md).
 
+## Blender 3-D court and motion visualisation
+
+The public A10-R10 evidence chain can be rendered as an animated Blender scene from
+the released 3-D keypoint table, locked 35-point court geometry and four-camera
+calibration. The screenshot below is source frame 4080 within the 203-frame A10-R10
+demonstration. The colour-coded skeleton and orange wrist trace are visual aids; the
+underlying coordinates are the released Pose2Sim-derived observations.
+
+<p align="center">
+  <img src="assets/a10_r10_blender_3d.png" alt="A10-R10 three-dimensional badminton skeleton, 35 calibration targets, four-camera geometry and wrist trajectory in Blender" width="100%">
+</p>
+
+The generated `.blend` file is intentionally excluded from Git because it is a
+rebuildable binary artifact. See [Blender visualisation](docs/BLENDER_VISUALIZATION.md)
+for the exact command, inputs, outputs and interpretation limits.
+
 ## Data policy
 
 Do not commit additional participant videos, raw IMU dumps, C3D files, archives or identifiable
@@ -281,6 +297,7 @@ Suggested manuscript statement:
 | LOPO outputs | All OOF probabilities, ROC curves and clustered-bootstrap CIs are auditable |
 | Exact LOPO model training | Blocked until the authoritative classifier specification is identified |
 | Real end-to-end example | A10-R10: 4-view 2D, 35-point calibration, 3D, aligned 4-IMU data and audits |
+| Blender 3-D visualisation | A10-R10 scene and preview reproducible from the public calibration and 203-frame keypoint package |
 | Human-participant media | Limited author-participant four-view demonstration; full dataset not public |
 | Public software license/citation | MIT; software citation metadata included |
 | New regulation-court deployment | Site scaffold, P01--P35 export, four-camera/IMU manifests and auditable deployment gate |
