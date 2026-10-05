@@ -1,6 +1,6 @@
 # BadmintonFusion35
 
-### A Four-Camera Visual–IMU Dataset for Badminton Motion Analysis
+### Four-Camera Visual–IMU Algorithms for Badminton Motion Analysis
 
 BadmintonFusion35 is a reproducibility and deployment package for a court-standardized badminton
 training study using four fixed cameras, 35 non-coplanar scene control points and four
@@ -11,6 +11,27 @@ This is a **public research-code release**. Version 0.4.0 includes a limited fou
 demonstration and a compact end-to-end `A10-R10` evidence package from one consenting
 author-participant. It does not claim that the full
 multi-participant paper dataset or every paper result is publicly reproducible.
+
+## Algorithm source release — 2026-10-05
+
+- [中文完整算法说明：每部分做什么、输入输出、参数及运行方法](docs/ALGORITHMS_ZH.md)
+- [English algorithm guide](docs/ALGORITHM_GUIDE.md)
+- [File-by-file source index](docs/CODE_INDEX.md)
+- [Original reference scripts and provenance boundaries](legacy_reference/README.md)
+- [Release verification and known gaps](docs/RELEASE_VERIFICATION_20261005.md)
+
+This update adds **algorithm source, documentation and synthetic tests**, not private
+participant data. It includes gap-aware visual features, IMU feature primitives,
+repetition aggregation, fixed-block inference, participant-cluster bootstrap,
+random-intercept sensitivity analysis, nested participant-held-out logistic
+classification, study-figure PCA, and timing/scene-table audits. Twelve original
+P01-lineage scripts are retained as clearly labeled references with explicit local
+configuration. They are not asserted to be the final executed script for every participant.
+
+The newer, fully specified nested logistic classifier is **not** a recovery of the
+unarchived historical classifier. Raw-data-to-23-feature-workbook assembly and all
+participant-specific manual repair histories are not claimed to be fully recovered.
+Existing public demonstration assets are unchanged by this source-only update.
 
 ## Data Collection Framework
 

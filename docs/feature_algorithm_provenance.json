@@ -1,0 +1,105 @@
+{
+  "release_date": "2026-10-05",
+  "scope": "P01 reference algorithm lineage, not evidence that every participant used this exact branch.",
+  "private_data_included": false,
+  "extractions": {
+    "analysis/kinematics.py": "base: split_invalid_joints, marker_columns, safe_stat, calculate_angle_series; v2: calculate_marker_metrics, calculate_angle_metrics (base.safe_stat -> safe_stat)",
+    "imu/features.py": [
+      "interpolate_with_gap_limit",
+      "filter_valid_blocks",
+      "rms",
+      "safe_percentile",
+      "peak_value_and_time",
+      "missing_gap_statistics"
+    ],
+    "analysis/aggregation.py": [
+      "summarize_long"
+    ]
+  },
+  "references": [
+    {
+      "file": "legacy_reference/p01/segment_repetitions.py",
+      "original_filename": "segment_repetitions.py",
+      "original_sha256": "285808c712b19cdb3e6c04e787d5ed5bc50bd2705ca1ba01d90d6d2d28900e9f",
+      "published_sha256": "d50538ca83e8e1d6ce32170a0062d36cc35be2d419cd1d04f8743e34a0b93800",
+      "edits": "Explicit local-root/writes guard; recorded session-specific display windows externalized; original algorithm bodies otherwise retained."
+    },
+    {
+      "file": "legacy_reference/p01/segment_A10_zoom.py",
+      "original_filename": "segment_A10_zoom.py",
+      "original_sha256": "8e9f4a6f066d15c1f04e20f447dffd4d334505da57395026ad8d00f2dfc89b09",
+      "published_sha256": "c88a476c2ed1c39e4d494c521d473593ced30f1242883f62f03dfdfc38afc1a1",
+      "edits": "Explicit local-root/writes guard; recorded session-specific display windows externalized; original algorithm bodies otherwise retained."
+    },
+    {
+      "file": "legacy_reference/p01/extract_participant01_metrics.py",
+      "original_filename": "extract_participant01_metrics.py",
+      "original_sha256": "f170ed71cc859d4dabf496610fa1c72aa29daf29a8c9631b6f3001c7192f0581",
+      "published_sha256": "a6fa7f4f8e88989da5a9be287885afcc1364601eb6bfb705777fdfc865ab81e2",
+      "edits": "Explicit local-root/writes guard; recorded session-specific display windows externalized; original algorithm bodies otherwise retained."
+    },
+    {
+      "file": "legacy_reference/p01/extract_participant01_metrics_v2.py",
+      "original_filename": "extract_participant01_metrics_v2.py",
+      "original_sha256": "d26f71bc0bd5afa6ed58713cb5875b7933384a96da016d78dec56404974a3f7a",
+      "published_sha256": "6bbce88c136a8fc1dc2fc0b99bc4d16c625fd246ac254144fe2154391d8ea5f4",
+      "edits": "Explicit local-root/writes guard; recorded session-specific display windows externalized; original algorithm bodies otherwise retained."
+    },
+    {
+      "file": "legacy_reference/p01/summarize_participant01_metrics.py",
+      "original_filename": "summarize_participant01_metrics.py",
+      "original_sha256": "63f5617239caae9bf04d79bdf1c8b636c8a2d508da3cb9895935decb2e340e10",
+      "published_sha256": "661036c7677b7eb887270895bd321ccab1df37531cc095aa0e5b7cdd44688165",
+      "edits": "Explicit local-root/writes guard; recorded session-specific display windows externalized; original algorithm bodies otherwise retained."
+    },
+    {
+      "file": "legacy_reference/p01/merge_reconstruct_P01_IMU.py",
+      "original_filename": "merge_reconstruct_P01_IMU.py",
+      "original_sha256": "a378f1c47d81b0281f170b355933d360ecadd798b7b9d42a9beeecadaa300a5a",
+      "published_sha256": "b180727fbdc51328de636d01c0ea524d62f893e51dbd640e5469fb0b4b073307",
+      "edits": "Explicit local-root/writes guard; recorded session-specific display windows externalized; original algorithm bodies otherwise retained."
+    },
+    {
+      "file": "legacy_reference/p01/prepare_P01_IMU_alignment_preview.py",
+      "original_filename": "prepare_P01_IMU_alignment_preview.py",
+      "original_sha256": "39e0a1d41906de3deb2b9696abf1077bb677c3bd11526a2d3f57bfa5d3556088",
+      "published_sha256": "9d8b0ea97ee384671f3bfd0da398faf8cbce879bde0a7921fa86109192631cf3",
+      "edits": "Explicit local-root/writes guard; recorded session-specific display windows externalized; original algorithm bodies otherwise retained."
+    },
+    {
+      "file": "legacy_reference/p01/segment_P01_IMU_trials.py",
+      "original_filename": "segment_P01_IMU_trials.py",
+      "original_sha256": "8862af8736a24aafacee3a8f401919551cbdf335314782f2fe701b0240e62304",
+      "published_sha256": "4b6752b48d3c6191febe76da265380f8c6a00534e838452f1dddc48213834c0c",
+      "edits": "Explicit local-root/writes guard; recorded session-specific display windows externalized; original algorithm bodies otherwise retained."
+    },
+    {
+      "file": "legacy_reference/p01/align_P01_visual_IMU.py",
+      "original_filename": "align_P01_visual_IMU.py",
+      "original_sha256": "0ee3b668d94027636d81c6a55a13f8d63b44fb89ef860c16da9756089edce089",
+      "published_sha256": "f3a5bb5019f0919bcd7c9930a3d10f28f8a08dd67621ad1f2ded94461ab7dc20",
+      "edits": "Explicit local-root/writes guard; recorded session-specific display windows externalized; original algorithm bodies otherwise retained."
+    },
+    {
+      "file": "legacy_reference/p01/map_P01_visual_repetitions_to_IMU.py",
+      "original_filename": "map_P01_visual_repetitions_to_IMU.py",
+      "original_sha256": "c43c1cea54c46bdd9248cb4692a4790eb380af4844fe92e88bf825922be6069f",
+      "published_sha256": "c7ee807644ebc784ed654b28a24cbef8ac5797b266ea05505de1009192f94653",
+      "edits": "Explicit local-root/writes guard; recorded session-specific display windows externalized; original algorithm bodies otherwise retained."
+    },
+    {
+      "file": "legacy_reference/p01/extract_P01_IMU_repetition_metrics.py",
+      "original_filename": "extract_P01_IMU_repetition_metrics.py",
+      "original_sha256": "857a23a50d330553a90f2ff363342f8047359fe32fe1bd3d810d8b0c2b8e94b2",
+      "published_sha256": "04d98e26f109a80f15972ec06d2a433464f2312f05bb17793d8ddd514abd85c9",
+      "edits": "Explicit local-root/writes guard; recorded session-specific display windows externalized; original algorithm bodies otherwise retained."
+    },
+    {
+      "file": "legacy_reference/p01/build_P01_visual_IMU_joint_inclusion.py",
+      "original_filename": "build_P01_visual_IMU_joint_inclusion.py",
+      "original_sha256": "b5bc05ca401f4af962a1f60971d1e92e926d2f7102ade3354301e2556ab04a36",
+      "published_sha256": "79e135a52c7df0d3563b422155eea595cfa65f6eaa5882098d94cfa46db4ba32",
+      "edits": "Explicit local-root/writes guard; recorded session-specific display windows externalized; original algorithm bodies otherwise retained."
+    }
+  ]
+}

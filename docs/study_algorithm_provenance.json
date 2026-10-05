@@ -1,0 +1,25 @@
+{
+  "source_file": "build_sci_supplement.py",
+  "source_sha256": "8d7568ddcec12c43654d42938aabe995232aa6ea8cdd8ba1cb68531967cf85bf",
+  "random_seed": 20260813,
+  "export_date": "2026-10-05",
+  "extracted_functions": [
+    "sha256",
+    "bh",
+    "design",
+    "fixed_model",
+    "within_parts",
+    "eta_from_parts",
+    "eta_ci",
+    "mixed_model",
+    "softmax",
+    "fit_multinomial",
+    "predict_probs",
+    "standardize_train_test",
+    "metrics",
+    "nested_lopo",
+    "missingness"
+  ],
+  "change": "Function bodies preserved; private paths, rendering orchestration and participant-specific evidence claims excluded.",
+  "historical_classifier_recovered": false
+}

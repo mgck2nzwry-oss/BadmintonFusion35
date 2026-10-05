@@ -1,0 +1,1459 @@
+{
+  "generated": "2026-10-05",
+  "scope": "source structure, not execution certification",
+  "files": [
+    {
+      "path": "desktop_app/build_a01_demo.py",
+      "sha256": "f282539172d0f933125f2e2d8b369fb749e83d5fc17a8624db657719a2098fc1",
+      "symbols": [
+        {
+          "name": "number",
+          "line": 15
+        },
+        {
+          "name": "mapping_row",
+          "line": 22
+        },
+        {
+          "name": "imu_signals",
+          "line": 30
+        },
+        {
+          "name": "triplet",
+          "line": 49
+        },
+        {
+          "name": "kinematic_signals",
+          "line": 54
+        },
+        {
+          "name": "build",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "path": "desktop_app/build_desktop_exe.ps1",
+      "sha256": "f072aab6bd37c9c1cca5ec3f6e9f440ef8d24f9702005013f35be5b33b1a0034",
+      "symbols": []
+    },
+    {
+      "path": "desktop_app/player.py",
+      "sha256": "b0bd223ba046af6df28ec2ecf5df9042f6456a2ff67909d45f9d247e07d2e332",
+      "symbols": [
+        {
+          "name": "SignalPlot",
+          "line": 31
+        },
+        {
+          "name": "SignalPlot.__init__",
+          "line": 32
+        },
+        {
+          "name": "SignalPlot.set_signal",
+          "line": 42
+        },
+        {
+          "name": "SignalPlot.seek",
+          "line": 46
+        },
+        {
+          "name": "SignalPlot.render",
+          "line": 51
+        },
+        {
+          "name": "Player",
+          "line": 79
+        },
+        {
+          "name": "Player.__init__",
+          "line": 80
+        },
+        {
+          "name": "Player._layout",
+          "line": 99
+        },
+        {
+          "name": "Player.load_demo",
+          "line": 154
+        },
+        {
+          "name": "Player.pick_manifest",
+          "line": 162
+        },
+        {
+          "name": "Player.pick_videos",
+          "line": 168
+        },
+        {
+          "name": "Player.load_manifest",
+          "line": 175
+        },
+        {
+          "name": "Player.open_evidence",
+          "line": 202
+        },
+        {
+          "name": "Player.nearest",
+          "line": 214
+        },
+        {
+          "name": "Player.render_videos",
+          "line": 221
+        },
+        {
+          "name": "Player.seek",
+          "line": 238
+        },
+        {
+          "name": "Player.toggle",
+          "line": 253
+        },
+        {
+          "name": "Player.tick",
+          "line": 259
+        },
+        {
+          "name": "Player.pause",
+          "line": 266
+        },
+        {
+          "name": "Player.release_captures",
+          "line": 272
+        },
+        {
+          "name": "Player.close",
+          "line": 276
+        },
+        {
+          "name": "self_test",
+          "line": 280
+        },
+        {
+          "name": "main",
+          "line": 293
+        }
+      ]
+    },
+    {
+      "path": "desktop_app/run_a01_demo.ps1",
+      "sha256": "31d92bb96170d2ddbe0df4e116fec8107f83b985c36840151171c8218ae1bba3",
+      "symbols": []
+    },
+    {
+      "path": "legacy_reference/p01/align_P01_visual_IMU.py",
+      "sha256": "d583d5ec83e4757f7fb4f8c87415205547ae4f6fe55fa0fe7efe0fbb34f36777",
+      "symbols": [
+        {
+          "name": "interpolate_finite",
+          "line": 68
+        },
+        {
+          "name": "robust_normalize",
+          "line": 150
+        },
+        {
+          "name": "pearson_correlation",
+          "line": 197
+        }
+      ]
+    },
+    {
+      "path": "legacy_reference/p01/build_P01_visual_IMU_joint_inclusion.py",
+      "sha256": "d5c83a8a413b43a9f466dd3e91c23571669738adf417189086847dde545a65b3",
+      "symbols": [
+        {
+          "name": "determine_status",
+          "line": 50
+        },
+        {
+          "name": "determine_reason",
+          "line": 72
+        }
+      ]
+    },
+    {
+      "path": "legacy_reference/p01/extract_P01_IMU_repetition_metrics.py",
+      "sha256": "a3e0e07658c440dc97add312c0f8f9072bd3bf87964674c8d527fc9d500d8e41",
+      "symbols": [
+        {
+          "name": "split_invalid_joints",
+          "line": 87
+        },
+        {
+          "name": "interpolate_with_gap_limit",
+          "line": 98
+        },
+        {
+          "name": "filter_valid_blocks",
+          "line": 187
+        },
+        {
+          "name": "rms",
+          "line": 249
+        },
+        {
+          "name": "safe_percentile",
+          "line": 269
+        },
+        {
+          "name": "peak_value_and_time",
+          "line": 290
+        },
+        {
+          "name": "missing_gap_statistics",
+          "line": 322
+        }
+      ]
+    },
+    {
+      "path": "legacy_reference/p01/extract_participant01_metrics.py",
+      "sha256": "a85351d5dedbb4c9cb4b8cb8fcd1b2e72ab343c663d935abd7d6c64e9b8e0804",
+      "symbols": [
+        {
+          "name": "split_invalid_joints",
+          "line": 35
+        },
+        {
+          "name": "marker_columns",
+          "line": 46
+        },
+        {
+          "name": "safe_stat",
+          "line": 54
+        },
+        {
+          "name": "calculate_marker_metrics",
+          "line": 64
+        },
+        {
+          "name": "calculate_angle_series",
+          "line": 165
+        },
+        {
+          "name": "calculate_angle_metrics",
+          "line": 220
+        },
+        {
+          "name": "main",
+          "line": 284
+        }
+      ]
+    },
+    {
+      "path": "legacy_reference/p01/extract_participant01_metrics_v2.py",
+      "sha256": "dc64a8fcaa3c4435e961b441efbb6e225a2b14ed4131c007c911d26a44f42d13",
+      "symbols": [
+        {
+          "name": "read_trc_safe",
+          "line": 13
+        },
+        {
+          "name": "calculate_marker_metrics",
+          "line": 27
+        },
+        {
+          "name": "calculate_angle_metrics",
+          "line": 151
+        }
+      ]
+    },
+    {
+      "path": "legacy_reference/p01/legacy_config.py",
+      "sha256": "995c0950719a9e7db337626d0d9a66f793fe5b7cc9315e0fef8a88eae650e052",
+      "symbols": [
+        {
+          "name": "load_windows",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "legacy_reference/p01/map_P01_visual_repetitions_to_IMU.py",
+      "sha256": "4e23550b4f2bcf7071f2a9ff0427c85ec8d1bb248017c0e0342367d0d79c682b",
+      "symbols": [
+        {
+          "name": "nearest_index",
+          "line": 47
+        }
+      ]
+    },
+    {
+      "path": "legacy_reference/p01/merge_reconstruct_P01_IMU.py",
+      "sha256": "4af07e7846ab15c3cafb87538b6fca102c24981fb7df3e0cb53c3e4d6841accb",
+      "symbols": [
+        {
+          "name": "source_part",
+          "line": 34
+        },
+        {
+          "name": "reconstruct_timestamp",
+          "line": 46
+        }
+      ]
+    },
+    {
+      "path": "legacy_reference/p01/prepare_P01_IMU_alignment_preview.py",
+      "sha256": "ec88c7703aa59899d7c975ab5da5cec8aacfa1f29959384cdc4a78811a1aa71a",
+      "symbols": [
+        {
+          "name": "gap_aware_interpolate",
+          "line": 38
+        },
+        {
+          "name": "robust_normalize",
+          "line": 121
+        }
+      ]
+    },
+    {
+      "path": "legacy_reference/p01/segment_A10_zoom.py",
+      "sha256": "a78c76e9e2dd3649c5e367d38d44000470b8c259cc1dd7818a79ebb4d77b9966",
+      "symbols": []
+    },
+    {
+      "path": "legacy_reference/p01/segment_P01_IMU_trials.py",
+      "sha256": "b13e9711c178cb7631e86706a1345fed990888675eae6d94d1d5a46bc9ea66f9",
+      "symbols": [
+        {
+          "name": "nearest_index",
+          "line": 41
+        }
+      ]
+    },
+    {
+      "path": "legacy_reference/p01/segment_repetitions.py",
+      "sha256": "5a99400922305e426445f15251de0fde48eeac25bb97ff7bd09b667ba96e58f6",
+      "symbols": [
+        {
+          "name": "read_trc",
+          "line": 18
+        },
+        {
+          "name": "build_motion_energy",
+          "line": 91
+        },
+        {
+          "name": "main",
+          "line": 159
+        }
+      ]
+    },
+    {
+      "path": "legacy_reference/p01/summarize_participant01_metrics.py",
+      "sha256": "64696a75d7a466ddd0d9ec29dcc2db4556d4f6499cb7d8d02ac779f66ad4f1d9",
+      "symbols": [
+        {
+          "name": "summarize_long",
+          "line": 38
+        },
+        {
+          "name": "summarize_duration",
+          "line": 152
+        },
+        {
+          "name": "main",
+          "line": 195
+        }
+      ]
+    },
+    {
+      "path": "scripts/audit_validation_tables.py",
+      "sha256": "e18ceed2cad288f1434ac93e09d88706f19f4b243c2210dd759c96171d7c6e89",
+      "symbols": [
+        {
+          "name": "main",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "scripts/build_blender_scene.py",
+      "sha256": "d71638b0db1d791fea0d8ae3f4a7f3fca16b5eef7def88b52b4462bc9129e714",
+      "symbols": [
+        {
+          "name": "parse_args",
+          "line": 57
+        },
+        {
+          "name": "read_trc",
+          "line": 78
+        },
+        {
+          "name": "read_keypoints_csv",
+          "line": 117
+        },
+        {
+          "name": "material",
+          "line": 169
+        },
+        {
+          "name": "add_box",
+          "line": 185
+        },
+        {
+          "name": "add_sphere",
+          "line": 198
+        },
+        {
+          "name": "animate_location",
+          "line": 210
+        },
+        {
+          "name": "animate_property",
+          "line": 214
+        },
+        {
+          "name": "add_animated_bone",
+          "line": 237
+        },
+        {
+          "name": "add_curve",
+          "line": 263
+        },
+        {
+          "name": "add_text",
+          "line": 278
+        },
+        {
+          "name": "load_control_points",
+          "line": 291
+        },
+        {
+          "name": "parse_calibration",
+          "line": 296
+        },
+        {
+          "name": "rodrigues",
+          "line": 303
+        },
+        {
+          "name": "look_at",
+          "line": 311
+        },
+        {
+          "name": "main",
+          "line": 315
+        }
+      ]
+    },
+    {
+      "path": "scripts/extract_visual_features.py",
+      "sha256": "78e2c77c1f6a39d2a6c5cb2a79ae0e1b88b4cdf01b69a89d8a40f62037810259",
+      "symbols": [
+        {
+          "name": "main",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "scripts/inventory_legacy.py",
+      "sha256": "3681193b9e131d5f0f57cdcc91aea4196c28a54f916672b6a5fb8a1661ee7ee1",
+      "symbols": [
+        {
+          "name": "main",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "scripts/plot_a10_r10.py",
+      "sha256": "aa9e8d30be45778b03cd16c71fe2b07b2872526bfbbe6a9a4ddb0f1b7484f65a",
+      "symbols": [
+        {
+          "name": "build_figure",
+          "line": 19
+        },
+        {
+          "name": "main",
+          "line": 75
+        }
+      ]
+    },
+    {
+      "path": "scripts/real_data_regression.py",
+      "sha256": "6baa7f86af3be42fdf8ae1372a97fcff2ce1bfc64412020cf09de6a63fc86b95",
+      "symbols": [
+        {
+          "name": "main",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "path": "scripts/reproduce_study_pca.py",
+      "sha256": "5c3b64cc3d7baab1983a3c3c3b21bb396585fb877663c091c3d1b6cf6f09f64e",
+      "symbols": [
+        {
+          "name": "main",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "scripts/run_complete_evidence_chain.ps1",
+      "sha256": "b98f136bca6e25051be41cdd561c38b444ce9d111ab9d4bcb2c819e2289e4b7d",
+      "symbols": []
+    },
+    {
+      "path": "scripts/run_study_analysis.py",
+      "sha256": "46cd15e9623b511bd251c212441eecf0155402ac9868c77dc376a0e2001b3a78",
+      "symbols": [
+        {
+          "name": "synthetic_frame",
+          "line": 19
+        },
+        {
+          "name": "validate_frame",
+          "line": 32
+        },
+        {
+          "name": "main",
+          "line": 58
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/__init__.py",
+      "sha256": "850492b82bc6e20a22a489db0eb2821548462b95e9b2ce0fad251d02982613d3",
+      "symbols": []
+    },
+    {
+      "path": "src/badminton_court35/__main__.py",
+      "sha256": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "symbols": []
+    },
+    {
+      "path": "src/badminton_court35/alignment/__init__.py",
+      "sha256": "098e42255fa4436213cf63cb264932b8d94a659667734de395ef4346281c251f",
+      "symbols": []
+    },
+    {
+      "path": "src/badminton_court35/alignment/nearest.py",
+      "sha256": "df3dc2749c1ddf04f864fdf069a60a918ed6cc33c4a7bce1fa84521f53f9c276",
+      "symbols": [
+        {
+          "name": "nearest_time_mapping",
+          "line": 7
+        },
+        {
+          "name": "merge_visual_imu",
+          "line": 56
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/analysis/__init__.py",
+      "sha256": "376a91a7432dfc201caab9e819ed63ec22dfa8ccfdab8a2df3a5e17d28398377",
+      "symbols": []
+    },
+    {
+      "path": "src/badminton_court35/analysis/aggregation.py",
+      "sha256": "ebf1720d672fa10879e8a0cdf7c31e162a31ab8c193ed32aeafc9c5418254573",
+      "symbols": [
+        {
+          "name": "summarize_long",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/analysis/kinematics.py",
+      "sha256": "7e424022dc70b302d009e963c13e576baf5c4b54e8298606f647e965d0671f4b",
+      "symbols": [
+        {
+          "name": "split_invalid_joints",
+          "line": 10
+        },
+        {
+          "name": "marker_columns",
+          "line": 21
+        },
+        {
+          "name": "safe_stat",
+          "line": 29
+        },
+        {
+          "name": "calculate_angle_series",
+          "line": 39
+        },
+        {
+          "name": "calculate_marker_metrics",
+          "line": 94
+        },
+        {
+          "name": "calculate_angle_metrics",
+          "line": 218
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/analysis/paper.py",
+      "sha256": "e3ff02e80e7a2ebc15f892fba3f843c5693786fbb9c999412989d5fe2ac78712",
+      "symbols": [
+        {
+          "name": "binary_roc_auc",
+          "line": 17
+        },
+        {
+          "name": "multiclass_roc_metrics",
+          "line": 48
+        },
+        {
+          "name": "cluster_bootstrap_roc",
+          "line": 67
+        },
+        {
+          "name": "audit_paper_tables",
+          "line": 110
+        },
+        {
+          "name": "audit_paper_workbook",
+          "line": 331
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/analysis/pca_study.py",
+      "sha256": "dfc9908320b0dd2ffd7937981cc867307f1b1400d6077737852f958dad00b252",
+      "symbols": [
+        {
+          "name": "study_pca",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/analysis/stats.py",
+      "sha256": "8fff402da9a2c51d3c33b84eb15eed225132ff12119e009083c91f472ef63732",
+      "symbols": [
+        {
+          "name": "benjamini_hochberg",
+          "line": 8
+        },
+        {
+          "name": "pca_standardized",
+          "line": 33
+        },
+        {
+          "name": "participant_blocked_action_effects",
+          "line": 64
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/analysis/study.py",
+      "sha256": "9bbf6fa1bea1ab8193051cfa871713b2f180b8f42125fb820b4ddefdd21e2701",
+      "symbols": [
+        {
+          "name": "sha256",
+          "line": 48
+        },
+        {
+          "name": "bh",
+          "line": 56
+        },
+        {
+          "name": "design",
+          "line": 66
+        },
+        {
+          "name": "fixed_model",
+          "line": 75
+        },
+        {
+          "name": "within_parts",
+          "line": 126
+        },
+        {
+          "name": "eta_from_parts",
+          "line": 142
+        },
+        {
+          "name": "eta_ci",
+          "line": 152
+        },
+        {
+          "name": "mixed_model",
+          "line": 161
+        },
+        {
+          "name": "softmax",
+          "line": 198
+        },
+        {
+          "name": "fit_multinomial",
+          "line": 204
+        },
+        {
+          "name": "predict_probs",
+          "line": 224
+        },
+        {
+          "name": "standardize_train_test",
+          "line": 229
+        },
+        {
+          "name": "metrics",
+          "line": 236
+        },
+        {
+          "name": "nested_lopo",
+          "line": 257
+        },
+        {
+          "name": "missingness",
+          "line": 316
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/analysis/validation.py",
+      "sha256": "65499c6703b30c7a52de9513e31aca70026f9ebcb50c62844aa4c06b83e5ab72",
+      "symbols": [
+        {
+          "name": "scene_point_errors",
+          "line": 6
+        },
+        {
+          "name": "event_timing_errors",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/calibration/__init__.py",
+      "sha256": "3d584f869f406f9ff698863e943d0aa2946976b14b3b63dd6f2933c81b169bcc",
+      "symbols": []
+    },
+    {
+      "path": "src/badminton_court35/calibration/audit.py",
+      "sha256": "4d4cc528eb122a80f464b7bec0e12984cb296b902fd03a2c90f8ed4a5a1f645d",
+      "symbols": [
+        {
+          "name": "audit_residual_table",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/calibration/control_points.py",
+      "sha256": "32a397237459dfdd7faa599eb5453708719a787b8319525160ad6e0246f54b3d",
+      "symbols": [
+        {
+          "name": "ControlPoint",
+          "line": 20
+        },
+        {
+          "name": "ControlPoint.canonical_row",
+          "line": 28
+        },
+        {
+          "name": "expected_control_points",
+          "line": 35
+        },
+        {
+          "name": "read_control_points",
+          "line": 54
+        },
+        {
+          "name": "write_control_points",
+          "line": 75
+        },
+        {
+          "name": "control_point_digest",
+          "line": 95
+        },
+        {
+          "name": "validate_control_points",
+          "line": 100
+        },
+        {
+          "name": "trc_declared_marker_count",
+          "line": 162
+        },
+        {
+          "name": "report_json",
+          "line": 175
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/calibration/deployment.py",
+      "sha256": "33845fb19a8831290fb537feb61d35ce4fa200247fec21e21cf01cb964c7dc58",
+      "symbols": [
+        {
+          "name": "_write_csv",
+          "line": 61
+        },
+        {
+          "name": "_as_bool",
+          "line": 69
+        },
+        {
+          "name": "_load_toml",
+          "line": 73
+        },
+        {
+          "name": "_site_toml",
+          "line": 78
+        },
+        {
+          "name": "_site_readme",
+          "line": 107
+        },
+        {
+          "name": "create_site_package",
+          "line": 121
+        },
+        {
+          "name": "_read_csv",
+          "line": 182
+        },
+        {
+          "name": "_missing_columns",
+          "line": 187
+        },
+        {
+          "name": "validate_site_package",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/calibration/resilience.py",
+      "sha256": "8f8846df0735666e44cd0c2d18584e7665184ff22ba78f2331ca7cc6fa6692aa",
+      "symbols": [
+        {
+          "name": "assess_calibration_resilience",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/cli.py",
+      "sha256": "2ac42ccf65ae1b83e532acff0eaf157290a6ac1239605fafc1fde158b991a703",
+      "symbols": [
+        {
+          "name": "_json_default",
+          "line": 32
+        },
+        {
+          "name": "_emit",
+          "line": 42
+        },
+        {
+          "name": "_validate_points",
+          "line": 51
+        },
+        {
+          "name": "_export_points",
+          "line": 64
+        },
+        {
+          "name": "_audit_calibration",
+          "line": 70
+        },
+        {
+          "name": "_reconstruct_time",
+          "line": 84
+        },
+        {
+          "name": "_filter_imu",
+          "line": 99
+        },
+        {
+          "name": "_map_nearest",
+          "line": 125
+        },
+        {
+          "name": "_qc_inclusion",
+          "line": 150
+        },
+        {
+          "name": "_pose2sim",
+          "line": 167
+        },
+        {
+          "name": "_audit_paper",
+          "line": 173
+        },
+        {
+          "name": "_demo",
+          "line": 183
+        },
+        {
+          "name": "_export_real_demo",
+          "line": 189
+        },
+        {
+          "name": "_build_dashboard_evidence",
+          "line": 195
+        },
+        {
+          "name": "_build_evidence_chain",
+          "line": 201
+        },
+        {
+          "name": "_scaffold_site",
+          "line": 209
+        },
+        {
+          "name": "_validate_site",
+          "line": 215
+        },
+        {
+          "name": "build_parser",
+          "line": 221
+        },
+        {
+          "name": "main",
+          "line": 348
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/demo.py",
+      "sha256": "78de2cb1e51f139bcb2b124f183fa33bb7ddf37beaa01883705bea52b7ee7107",
+      "symbols": [
+        {
+          "name": "build_demo",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/imu/__init__.py",
+      "sha256": "935c2c606ede90393229d4f2324c8ae66d6d7f32ee70aa2cc1827490bccb7df5",
+      "symbols": []
+    },
+    {
+      "path": "src/badminton_court35/imu/features.py",
+      "sha256": "38679ec8f9d545d1dd21a1b74da9b62662d503875107c876510975767e84abae",
+      "symbols": [
+        {
+          "name": "interpolate_with_gap_limit",
+          "line": 17
+        },
+        {
+          "name": "filter_valid_blocks",
+          "line": 106
+        },
+        {
+          "name": "rms",
+          "line": 168
+        },
+        {
+          "name": "safe_percentile",
+          "line": 188
+        },
+        {
+          "name": "peak_value_and_time",
+          "line": 209
+        },
+        {
+          "name": "missing_gap_statistics",
+          "line": 241
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/imu/filtering.py",
+      "sha256": "7372261c06fcd600befac939b4a48d9de60db136cb54295b51736d928fd03f8e",
+      "symbols": [
+        {
+          "name": "_finite_runs",
+          "line": 7
+        },
+        {
+          "name": "filter_contiguous_segments",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/imu/timebase.py",
+      "sha256": "cf17bf181287ba1b9a525b9494476ce56574c37c7d5798872a2ded52d67581a5",
+      "symbols": [
+        {
+          "name": "reconstruct_timestamp",
+          "line": 6
+        },
+        {
+          "name": "timebase_audit",
+          "line": 58
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/io/__init__.py",
+      "sha256": "d1a9ef3bf04804f66c3e7dc1b1f6443e0fa88eaaea59c2f8f165cbf44d9ed294",
+      "symbols": []
+    },
+    {
+      "path": "src/badminton_court35/io/trc.py",
+      "sha256": "a6bd175740b4922204ba2bc7e28897e594611a2fe66403df5c68db31323339a8",
+      "symbols": [
+        {
+          "name": "read_trc",
+          "line": 11
+        },
+        {
+          "name": "build_motion_energy",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/pipeline/__init__.py",
+      "sha256": "8a41f52329814af8fc78942d1b4b0e7592eef5600d60ea6909855933fad75266",
+      "symbols": []
+    },
+    {
+      "path": "src/badminton_court35/pipeline/evidence_chain.py",
+      "sha256": "581228631d7a036ca7d769120cbb6fe709760f2c2033cc911965b485c8f574ac",
+      "symbols": [
+        {
+          "name": "_hash",
+          "line": 31
+        },
+        {
+          "name": "_identity",
+          "line": 39
+        },
+        {
+          "name": "_stage",
+          "line": 49
+        },
+        {
+          "name": "_mapping",
+          "line": 53
+        },
+        {
+          "name": "_final_sync_offsets",
+          "line": 62
+        },
+        {
+          "name": "_pose_2d",
+          "line": 78
+        },
+        {
+          "name": "_trc_3d",
+          "line": 115
+        },
+        {
+          "name": "_imu_alignment",
+          "line": 137
+        },
+        {
+          "name": "build_evidence_chain",
+          "line": 157
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/pipeline/pose2sim.py",
+      "sha256": "5ddb5925c22af25c5de01635d5c6f6bbaea71f7026f30ec62ee8441e745c36b2",
+      "symbols": [
+        {
+          "name": "run_pose2sim",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/qc/__init__.py",
+      "sha256": "7dcb18954fdca553f587a0c96b5047339113cc0911169925421d4ad5f37c5f95",
+      "symbols": []
+    },
+    {
+      "path": "src/badminton_court35/qc/inclusion.py",
+      "sha256": "ebc47b0c99bb70943d2ba56e0da3037c54073e7d7e371bcf507e57ec1ebef70f",
+      "symbols": [
+        {
+          "name": "_as_bool",
+          "line": 7
+        },
+        {
+          "name": "apply_inclusion_rules",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/real_demo.py",
+      "sha256": "65a313c0bffff7f85c4902d87f3bc8119f2378e35fa79fa6200dc1f67a0f22ed",
+      "symbols": [
+        {
+          "name": "TrialSelection",
+          "line": 32
+        },
+        {
+          "name": "TrialSelection.trial_id",
+          "line": 40
+        },
+        {
+          "name": "_hash",
+          "line": 44
+        },
+        {
+          "name": "_write_json",
+          "line": 52
+        },
+        {
+          "name": "_export_2d",
+          "line": 57
+        },
+        {
+          "name": "_export_3d",
+          "line": 104
+        },
+        {
+          "name": "_interpolate_gap_limited",
+          "line": 134
+        },
+        {
+          "name": "_export_imu",
+          "line": 150
+        },
+        {
+          "name": "export_a10_r10",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/visualization/__init__.py",
+      "sha256": "9b0eb95c2b2cf60f699ddd7a163c349c2e4d34c8e76b282731fac7f70d3ecd32",
+      "symbols": []
+    },
+    {
+      "path": "src/badminton_court35/visualization/evidence.py",
+      "sha256": "30daa508abbd6dbd69c6a1069c78291be759727f83af3360219387356c396926",
+      "symbols": [
+        {
+          "name": "_sha256",
+          "line": 25
+        },
+        {
+          "name": "_write_json",
+          "line": 33
+        },
+        {
+          "name": "_installed_version",
+          "line": 40
+        },
+        {
+          "name": "_verify_locked_checksums",
+          "line": 47
+        },
+        {
+          "name": "_locked_result",
+          "line": 61
+        },
+        {
+          "name": "build_dashboard_evidence",
+          "line": 69
+        }
+      ]
+    },
+    {
+      "path": "src/badminton_court35/visualization/export.py",
+      "sha256": "ad369773f4f5173fea21afe07a8c3566fe17dd4dd1e064c600e8bac2d18d6b99",
+      "symbols": [
+        {
+          "name": "export_public_dashboard_data",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbols": []
+    },
+    {
+      "path": "tests/test_core.py",
+      "sha256": "63a6c5e163e585b248cdad59203955053d26d532b62487ee59658762665bb7be",
+      "symbols": [
+        {
+          "name": "ControlPointTests",
+          "line": 38
+        },
+        {
+          "name": "ControlPointTests.test_formal_layout",
+          "line": 39
+        },
+        {
+          "name": "ControlPointTests.test_round_trip_csv",
+          "line": 47
+        },
+        {
+          "name": "DeploymentTests",
+          "line": 53
+        },
+        {
+          "name": "DeploymentTests.test_site_template_requires_local_confirmation",
+          "line": 54
+        },
+        {
+          "name": "DeploymentTests.test_site_reports_ready_only_after_all_deployment_records",
+          "line": 64
+        },
+        {
+          "name": "DeploymentTests.test_site_blocks_nonstandard_geometry",
+          "line": 92
+        },
+        {
+          "name": "TimeAndFilterTests",
+          "line": 106
+        },
+        {
+          "name": "TimeAndFilterTests.test_batched_time_and_midnight",
+          "line": 107
+        },
+        {
+          "name": "TimeAndFilterTests.test_filter_preserves_gap",
+          "line": 114
+        },
+        {
+          "name": "MappingAndQCTests",
+          "line": 124
+        },
+        {
+          "name": "MappingAndQCTests.test_60_to_50_mapping",
+          "line": 125
+        },
+        {
+          "name": "MappingAndQCTests.test_variable_specific_qc",
+          "line": 137
+        },
+        {
+          "name": "AnalysisTests",
+          "line": 151
+        },
+        {
+          "name": "AnalysisTests.test_participant_blocked_action_effect",
+          "line": 152
+        },
+        {
+          "name": "AnalysisTests.test_tie_aware_auc_and_multiclass_metrics",
+          "line": 165
+        },
+        {
+          "name": "AnalysisTests.test_bh_is_monotone_in_rank",
+          "line": 173
+        },
+        {
+          "name": "AnalysisTests.test_standardized_pca",
+          "line": 181
+        },
+        {
+          "name": "AuditAndDemoTests",
+          "line": 190
+        },
+        {
+          "name": "AuditAndDemoTests.test_calibration_resilience_tolerates_small_losses_but_blocks_weak_camera",
+          "line": 191
+        },
+        {
+          "name": "AuditAndDemoTests.test_public_dashboard_export_excludes_raw_axes",
+          "line": 212
+        },
+        {
+          "name": "AuditAndDemoTests.test_python_builds_signed_dashboard_evidence",
+          "line": 244
+        },
+        {
+          "name": "AuditAndDemoTests.test_calibration_audit_and_demo",
+          "line": 262
+        }
+      ]
+    },
+    {
+      "path": "tests/test_published_demo.py",
+      "sha256": "e5856f1e536e9b17269e3b0f057fde1bfff55e922df259b6b21e362ad99542b3",
+      "symbols": [
+        {
+          "name": "file_hash",
+          "line": 15
+        },
+        {
+          "name": "PublishedA10R10Tests",
+          "line": 23
+        },
+        {
+          "name": "PublishedA10R10Tests.test_checksums_and_locked_scope",
+          "line": 24
+        },
+        {
+          "name": "PublishedA10R10Tests.test_public_imu_metrics_match_published_samples",
+          "line": 41
+        }
+      ]
+    },
+    {
+      "path": "tests/test_study_algorithms.py",
+      "sha256": "e563331aba58f997f4c17bba3cc8eca7696df83cc7670e0dec8ceabb88a63764",
+      "symbols": [
+        {
+          "name": "synthetic_study",
+          "line": 16
+        },
+        {
+          "name": "KinematicsTests",
+          "line": 23
+        },
+        {
+          "name": "KinematicsTests.test_speed_never_bridges_nan_gap",
+          "line": 24
+        },
+        {
+          "name": "KinematicsTests.test_geometric_angle_and_missing_marker",
+          "line": 32
+        },
+        {
+          "name": "KinematicsTests.test_angle_velocity_never_bridges_gap",
+          "line": 41
+        },
+        {
+          "name": "KinematicsTests.test_repetition_aggregation_excludes_invalid",
+          "line": 45
+        },
+        {
+          "name": "KinematicsTests.test_v2_extraction_is_identical_except_local_safe_stat",
+          "line": 53
+        },
+        {
+          "name": "IMUFeatureTests",
+          "line": 64
+        },
+        {
+          "name": "IMUFeatureTests.test_interpolation_keeps_long_gaps_and_no_extrapolation",
+          "line": 65
+        },
+        {
+          "name": "IMUFeatureTests.test_filter_keeps_gaps_and_returns_too_short_block",
+          "line": 69
+        },
+        {
+          "name": "StatisticalTests",
+          "line": 77
+        },
+        {
+          "name": "StatisticalTests.test_training_only_scaler",
+          "line": 78
+        },
+        {
+          "name": "StatisticalTests.test_fixed_model_agrees_with_independent_existing_implementation",
+          "line": 83
+        },
+        {
+          "name": "StatisticalTests.test_cluster_bootstrap_reproducible",
+          "line": 92
+        },
+        {
+          "name": "StatisticalTests.test_nested_lopo_holds_each_participant_out_once",
+          "line": 103
+        },
+        {
+          "name": "StatisticalTests.test_pca_population_scaling_and_sign",
+          "line": 114
+        },
+        {
+          "name": "ValidationAuditTests",
+          "line": 128
+        },
+        {
+          "name": "ValidationAuditTests.test_scene_units_and_reported_mismatch",
+          "line": 129
+        },
+        {
+          "name": "ValidationAuditTests.test_same_event_offset_not_independent_validation",
+          "line": 138
+        }
+      ]
+    },
+    {
+      "path": "visualizer/app/chatgpt-auth.ts",
+      "sha256": "4265a2e7c2dcb3a6f4b7026f762bf5b6e4caec76cc13c0a45987ee9a9f2e42cc",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/app/Dashboard.tsx",
+      "sha256": "f0a5308adcf74292726f423a12fb0e8a8552b8fbdafe641f8bfcf3dc5fd9cb0a",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/app/layout.tsx",
+      "sha256": "f5365e461d6d2481d7763778f822d27b043c37dd6545f58fd72ad936914c1120",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/app/page.tsx",
+      "sha256": "11d1152bf9eb8d04d2092c70afdf8588972b5881f0d3f3697173b2a13501a467",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/db/index.ts",
+      "sha256": "dc7610b00b918e0ffff1360a63626f16655ced3064b2eaf96095a4101fb14bcd",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/db/schema.ts",
+      "sha256": "13ddacbf0be50e054d450a6c642b7fdc1aa943fd6b99084711e07e58b600390d",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/drizzle.config.ts",
+      "sha256": "af081f7384aaeb0082cf422e29f139d137ca2f6a57c69b2c37b9fb1f8479867b",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/eslint.config.mjs",
+      "sha256": "6090bd544865638d8c77a3443f037b3b289596a7ec1e1dccc3a13677e6d1ca83",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/examples/d1/app/api/notes/route.ts",
+      "sha256": "a3d4a74fd53b7bf53e2df41f169d9d9d44a8b22aeb6d92f4e754956079af8909",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/examples/d1/db/schema.ts",
+      "sha256": "d89eabd95716ce404f5f7ca2a254220435be8ddce7c899d7ef461ff22ec80454",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/next-env.d.ts",
+      "sha256": "a291a6b60536fec0a3b9d4ffd6d51179b463e9bc20281d7499d756813b4c07d5",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/next.config.ts",
+      "sha256": "614bce25b089c3f19b1e17a6346c74b858034040154c6621e7d35303004767cc",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/postcss.config.mjs",
+      "sha256": "dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/tests/rendered-html.test.mjs",
+      "sha256": "885b47c4d911d516a9270a9c150c5cab56bdb1f86d2aeb19fed789432668315e",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/vite.config.ts",
+      "sha256": "f7c14b8a38546bb6a7ec93cba22f8e8f131da9fbfe8b39327422ed5bb98d4613",
+      "symbols": []
+    },
+    {
+      "path": "visualizer/worker/index.ts",
+      "sha256": "2ed36d7fa996e946d9d7695c5925e7760246f6bf8fa35c06f1bc515c087dc450",
+      "symbols": []
+    }
+  ]
+}
